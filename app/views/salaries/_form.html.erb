@@ -1,0 +1,45 @@
+<%= form_for(@salary) do |f| %>
+  <% if @salary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@salary.errors.count, "error") %> prohibited this salary from being saved:</h2>
+
+      <ul>
+      <% @salary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :leave_info_id %><br />
+    <%= f.number_field :leave_info_id %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id %><br />
+    <%= f.number_field :employee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :applicable_month %><br />
+    <%= f.date_select :applicable_month %>
+  </div>
+  <div class="field">
+    <%= f.label :previous_month_salary %><br />
+    <%= f.text_field :previous_month_salary %>
+  </div>
+  <div class="field">
+    <%= f.label :applicable_salary %><br />
+    <%= f.text_field :applicable_salary %>
+  </div>
+  <div class="field">
+    <%= f.label :deduction %><br />
+    <%= f.text_field :deduction %>
+  </div>
+  <div class="field">
+    <%= f.label :deduction_description %><br />
+    <%= f.text_area :deduction_description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

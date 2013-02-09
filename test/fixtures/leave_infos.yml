@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employee_id: 1
+  start_date: 2013-02-08
+  end_date: 2013-02-08
+  status_of_day: 1.5
+  reason_of_leave: MyText
+  to_email_ids: MyString
+  cc_email_ids: MyString
+  reference_status: false
+  applicant_name: MyString
+
+two:
+  employee_id: 1
+  start_date: 2013-02-08
+  end_date: 2013-02-08
+  status_of_day: 1.5
+  reason_of_leave: MyText
+  to_email_ids: MyString
+  cc_email_ids: MyString
+  reference_status: false
+  applicant_name: MyString

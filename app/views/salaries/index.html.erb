@@ -1,0 +1,36 @@
+<h1>Listing salaries</h1>
+
+<table>
+  <tr>
+    <th>Leave info</th>
+    <th>Employee</th>
+    <th>Applicable month</th>
+    <th>Previous month salary</th>
+    <th>Applicable salary</th>
+    <th>Deduction</th>
+    <th>Deduction description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @salaries.each do |salary| %>
+  <tr>
+    <td><%= salary.leave_info_id %></td>
+    <td><%= salary.employee_id %></td>
+    <td><%= salary.applicable_month %></td>
+    <td><%= salary.previous_month_salary %></td>
+    <td><%= salary.applicable_salary %></td>
+    <td><%= salary.deduction %></td>
+    <td><%= salary.deduction_description %></td>
+    <td><%= link_to 'Show', salary %></td>
+    <td><%= link_to 'Edit', edit_salary_path(salary) %></td>
+    <td><%= link_to 'Destroy', salary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Salary', new_salary_path %><br>
+<%= link_to 'GoTo Main page', root_path %>

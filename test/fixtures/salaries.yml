@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  leave_info_id: 1
+  employee_id: 1
+  applicable_month: 2013-02-08
+  previous_month_salary: 1.5
+  applicable_salary: 1.5
+  deduction: 1.5
+  deduction_description: MyText
+
+two:
+  leave_info_id: 1
+  employee_id: 1
+  applicable_month: 2013-02-08
+  previous_month_salary: 1.5
+  applicable_salary: 1.5
+  deduction: 1.5
+  deduction_description: MyText

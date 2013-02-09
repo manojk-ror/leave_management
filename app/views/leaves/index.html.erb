@@ -1,0 +1,16 @@
+<h1> Welcome GrepRuby Employee  You are Stay On Main page</h1>
+<hr>
+<% if current_employee %>
+  <%= link_to 'View salary table', salaries_path, :method => :get %><br><hr>
+  
+  <%= link_to 'View personal_infos table', personal_infos_path, :method => :get %><br><hr>
+  
+  <%= link_to 'View Leave_info table', leave_infos_path, :method => :get %><br><hr>
+  
+  <%= link_to 'Logout', destroy_employee_session_path, :method => :delete %><br><hr>
+   
+<% else %>
+  <%= link_to 'Sigin', new_employee_session_path, :method => :get %><br><hr>
+  
+  <%= link_to 'Signup', new_employee_registration_path, :method => :get %><br><hr>
+<% end %>
