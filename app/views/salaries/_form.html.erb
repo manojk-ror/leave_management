@@ -12,16 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :leave_info_id %><br />
-    <%= f.number_field :leave_info_id %>
-  </div>
-  <div class="field">
     <%= f.label :employee_id %><br />
     <%= f.number_field :employee_id %>
   </div>
   <div class="field">
     <%= f.label :applicable_month %><br />
-    <%= f.date_select :applicable_month %>
+    <%= f.date_select :applicable_month, :start_year => 1948, :end_year => 2050 %>
   </div>
   <div class="field">
     <%= f.label :previous_month_salary %><br />
