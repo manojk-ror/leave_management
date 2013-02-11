@@ -10,7 +10,7 @@ class CreatePersonalInfos < ActiveRecord::Migration
       t.string :local_address
       t.string :email
       t.string :alternate_email
-      t.integer :phone
+      t.integer :phone, :limit => 12
       t.integer :home_phone
 
       t.timestamps
