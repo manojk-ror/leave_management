@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(:version => 20130208150157) do
     t.string   "local_address"
     t.string   "email"
     t.string   "alternate_email"
-    t.integer  "phone"
-    t.integer  "home_phone"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "phone",             :limit => 120
+    t.string   "home_phone",        :limit => 120
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "salaries", :force => true do |t|
