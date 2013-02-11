@@ -3,17 +3,13 @@
 <% if current_employee %>
   <center>
   <table border="2">
-  <th><b><%= link_to 'View salary table', salaries_path, :method => :get %></b></th>
-  
   <th><b><%= link_to 'View personal_infos table', personal_infos_path, :method => :get %></b></th>
- 
   <th><b><%= link_to 'View Leave_info table', leave_infos_path, :method => :get %></b></th>
+   <th><b><%= link_to 'View salary table', salaries_path, :method => :get %></b></th>
   </table>
   </center>
-
   <b><%= link_to 'Logout', destroy_employee_session_path, :method => :delete %></b><br><hr>
- 
-<% else %>
+ <% else %>
   <%= link_to 'Sigin', new_employee_session_path, :method => :get %>
   <p><%= link_to 'Signup', new_employee_registration_path, :method => :get %><br><hr></p>
 <% end %>
