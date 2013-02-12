@@ -12,7 +12,7 @@ class CreatePersonalInfos < ActiveRecord::Migration
       t.string :alternate_email
       t.string :phone, :limit => 120
       t.string :home_phone, :limit => 120
-      change_column :personal_infos, :phone, :String, :limit => 120
+      change_column :personal_infos, :phone, :String
 
       t.timestamps
     end
