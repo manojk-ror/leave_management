@@ -8,8 +8,15 @@ LeaveTest::Application.routes.draw do
   resources :personal_infos
 
 
-  get "leaves/index"
-
+  resources :leaves do
+    collection do
+      get 'admin_part'
+      get 'user_part'
+      get 'check_leave'
+    end
+  end
+  
+  
   devise_for :employees, :controllers => { :sessions => "employees/sessions" }
 
   # The priority is based upon order of creation:

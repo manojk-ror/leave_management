@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :employee_id %><br />
-    <%= f.number_field :employee_id %>
+    <%= f.label :Employee_id %> <%= current_employee.id %>
+    <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
   </div>
   <div class="field">
     <%= f.label :start_date %><br />
@@ -24,8 +24,11 @@
     <%= f.date_select :end_date,:start_year => 2000, :end_year => 2050%>
   </div>
   <div class="field">
+  
     <%= f.label :status_of_day %><br />
-    <%= f.text_field :status_of_day %>
+  	<%= f.text_field :status_of_day %>
+    
+    
   </div>
   <div class="field">
     <%= f.label :reason_of_leave %><br />
