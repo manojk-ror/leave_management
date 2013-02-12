@@ -1,0 +1,17 @@
+<center><h1> GrepRuby Webtech Leave & Salary Management</h1></center>
+<center><h3> Welcome user!!</h3></center>
+<hr>
+<% if current_employee %>
+  <center><b>
+  <%= link_to 'Create Leave', new_leave_info_path, :method => :get %><br>
+  <%= link_to 'Logout', destroy_employee_session_path, :method => :delete %> |
+  <%= link_to 'Back', root_path %></b> 
+  </center>
+  <hr>
+  <h3>Your total no Of Leave: </h3>
+  <h3>Your Current salary: </h3>
+ <% else %>
+  <%= link_to 'Sigin', new_employee_session_path, :method => :get %>
+  <p><%= link_to 'Signup', new_employee_registration_path, :method => :get %><br><hr></p>
+    
+<% end %>
