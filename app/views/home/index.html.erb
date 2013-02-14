@@ -1,0 +1,19 @@
+<center><h1>GrepRuby Webtech Leave & Salary Management</h1></center>
+<hr><br>
+<% if current_employee %>
+
+  <% if current_employee.id == 4 %>
+    <h2>Welcome Admin =>> </h2><br><center><h3><hr>
+    <%= link_to 'View Profiles', admin_personal_infos_path %> |
+    <%= link_to 'View Leaves', admin_leave_infos_path %> |
+    <%= link_to 'View Salary', admin_salaries_path %> </h3></center>
+  <% else %>
+    <h2>Welcome Employee</h2><br><hr>
+    <h3><%= link_to 'Create Laeves', new_leave_info_path %> </h3>
+  <% end %>
+
+    <h3><p align = right><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></p></h3>
+  
+<% else %>
+  <h3><%= link_to 'Sign In User', new_employee_session_path %></h3>
+<% end %>

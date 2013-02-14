@@ -1,0 +1,57 @@
+<%= form_for([:admin, @leave_info]) do |f| %>
+  <% if @leave_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_info.errors.count, "error") %> prohibited this leave_info from being saved:</h2>
+
+      <ul>
+      <% @leave_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Employee_id %> <%= current_employee.id %>
+    <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date,:start_year => 2000, :end_year => 2050 %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date,:start_year => 2000, :end_year => 2050%>
+  </div>
+  <div class="field">
+  
+    <%= f.label :status_of_day %><br />
+  	<%= f.text_field :status_of_day %>
+    
+    
+  </div>
+  <div class="field">
+    <%= f.label :reason_of_leave %><br />
+    <%= f.text_area :reason_of_leave %>
+  </div>
+  <div class="field">
+    <%= f.label :to_email_ids %><br />
+    <%= f.text_field :to_email_ids %>
+  </div>
+  <div class="field">
+    <%= f.label :cc_email_ids %><br />
+    <%= f.text_field :cc_email_ids %>
+  </div>
+  <div class="field">
+    <%= f.label :reference_status %><br />
+    <%= f.check_box :reference_status %>
+  </div>
+  <div class="field">
+    <%= f.label :applicant_name %><br /> 
+   
+    <%= f.text_field :applicant_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
