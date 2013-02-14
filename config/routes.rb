@@ -1,23 +1,13 @@
 LeaveTest::Application.routes.draw do
-  resources :salaries
-
-
+ 
   resources :leave_infos
-
-
-  resources :personal_infos
-
-
-  resources :leaves do
-    collection do
-      get 'admin_part'
-      get 'user_part'
-      get 'check_leave'
-    end
-  end
   
+  namespace :admin do
+    resources :personal_infos, :leave_infos, :salaries
+  end  
   
-  devise_for :employees, :controllers => { :sessions => "employees/sessions" }
+
+  devise_for :employees #, :controllers => { :sessions => "employees/sessions" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,7 +58,7 @@ LeaveTest::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'leaves#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
