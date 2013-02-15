@@ -16,6 +16,9 @@
     <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
   </div>
   <div class="field">
+  Date of join: <%= current_employee.date_of_joining %>
+  </div>
+  <div class="field">
     <%= f.label :start_date %><br />
     <%= f.date_select :start_date,:start_year => 2000, :end_year => 2050 %>
   </div>
@@ -26,8 +29,8 @@
   <div class="field">
   
     <%= f.label :status_of_day %><br />
-  	<%= f.text_field :status_of_day %>
-    
+    <%#= f.text_field :status_of_day %>
+    <%= f.select(:status_of_day, [['Half', 0.5], ['Full', 1]]) %>
     
   </div>
   <div class="field">

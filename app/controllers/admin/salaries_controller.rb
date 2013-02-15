@@ -9,7 +9,6 @@ class Admin::SalariesController < ApplicationController
     @salary = Salary.find(params[:id])
   end
 
-
   def new
     @salary = Salary.new
   end
@@ -44,7 +43,7 @@ class Admin::SalariesController < ApplicationController
   def destroy
     @salary = Salary.find(params[:id])
     @salary.destroy
-     redirect_to [:admin, @salary] 
+    redirect_to [:admin, @salary] 
   end
 
 end

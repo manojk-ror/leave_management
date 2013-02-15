@@ -1,83 +1,46 @@
 class LeaveInfosController < ApplicationController
-  # GET /leave_infos
-  # GET /leave_infos.json
+  #before_filter :create_object_existing_tables, :only => :new
+
   def index
     @leave_infos = LeaveInfo.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @leave_infos }
-    end
   end
 
-  # GET /leave_infos/1
-  # GET /leave_infos/1.json
   def show
     @leave_info = LeaveInfo.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @leave_info }
-    end
+    
   end
 
-  # GET /leave_infos/new
-  # GET /leave_infos/new.json
   def new
     @leave_info = LeaveInfo.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @leave_info }
-    end
   end
 
-  # GET /leave_infos/1/edit
   def edit
     @leave_info = LeaveInfo.find(params[:id])
   end
 
-  # POST /leave_infos
-  # POST /leave_infos.json
   def create
     @leave_info = LeaveInfo.new(params[:leave_info])
 
-    respond_to do |format|
       if @leave_info.save
-        format.html { redirect_to @leave_info, notice: 'Leave info was successfully created.' }
-        format.json { render json: @leave_info, status: :created, location: @leave_info }
+        redirect_to @leave_info, notice: 'Leave info was successfully created.' 
       else
-        format.html { render action: "new" }
-        format.json { render json: @leave_info.errors, status: :unprocessable_entity }
+        render action: "new" 
       end
-    end
   end
 
-  # PUT /leave_infos/1
-  # PUT /leave_infos/1.json
   def update
     @leave_info = LeaveInfo.find(params[:id])
-
-    respond_to do |format|
-      if @leave_info.update_attributes(params[:leave_info])
-        format.html { redirect_to @leave_info, notice: 'Leave info was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @leave_info.errors, status: :unprocessable_entity }
-      end
+    if @leave_info.update_attributes(params[:leave_info])
+      redirect_to @leave_info, notice: 'Leave info was successfully updated.'
+    else
+      render action: "edit" 
     end
   end
 
-  # DELETE /leave_infos/1
-  # DELETE /leave_infos/1.json
   def destroy
     @leave_info = LeaveInfo.find(params[:id])
     @leave_info.destroy
-
-    respond_to do |format|
-      format.html { redirect_to leave_infos_url }
-      format.json { head :no_content }
-    end
+    redirect_to leave_infos_url 
   end
+  
 end

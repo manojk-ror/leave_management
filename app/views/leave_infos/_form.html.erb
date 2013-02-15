@@ -26,9 +26,8 @@
   <div class="field">
   
     <%= f.label :status_of_day %><br />
-  	<%= f.text_field :status_of_day %>
-    
-    
+    <%#= f.text_field :status_of_day %>
+    <%= f.select(:status_of_day, [['Half', 0.5], ['Full', 1]]) %>
   </div>
   <div class="field">
     <%= f.label :reason_of_leave %><br />

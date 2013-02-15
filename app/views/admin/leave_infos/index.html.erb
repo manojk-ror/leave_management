@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Employee</th>
+    <th>Date Of Join</th>
     <th>Start date</th>
     <th>End date</th>
     <th>Status of day</th>
@@ -11,6 +12,7 @@
     <th>Cc email ids</th>
     <th>Reference status</th>
     <th>Applicant name</th>
+    <th>Leave status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +21,7 @@
 <% @leave_infos.each do |leave_info| %>
   <tr>
     <td><%= leave_info.employee_id %></td>
+    <td><%= current_employee.date_of_joining %></td>
     <td><%= leave_info.start_date %></td>
     <td><%= leave_info.end_date %></td>
     <td><%= leave_info.status_of_day %></td>
@@ -27,6 +30,7 @@
     <td><%= leave_info.cc_email_ids %></td>
     <td><%= leave_info.reference_status %></td>
     <td><%= leave_info.applicant_name %></td>
+    <td><%= leave_info.leave_status %></td>
     <td><%= link_to 'Show', admin_leave_info_path(leave_info) %></td>
     <td><%= link_to 'Edit', edit_admin_leave_info_path(leave_info) %></td>
     <td><%= link_to 'Destroy', admin_leave_info_path(leave_info), method: :delete, data: { confirm: 'Are you sure?' } %></td>

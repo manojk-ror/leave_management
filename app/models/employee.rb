@@ -5,12 +5,13 @@ class Employee < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :date_of_joining
+  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :date_of_joining, :admin_status
+  validates :email, :password, :password_confirmation,:date_of_joining, :presence => true
   # attr_accessible :title, :body
   
   has_one :personal_info, :dependent => :destroy
-  has_many :leave_infos
-  has_one :salary 
-  #:through => :salary
+  has_many :leave_infos, :dependent => :destroy
+  has_one :salary, :dependent => :destroy
+
 end

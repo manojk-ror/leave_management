@@ -6,6 +6,8 @@ class AddAdminStatusToEmployee < ActiveRecord::Migration
       employee.email = "admin@grepruby.com"
       employee.password = "grepruby"
       employee.admin_status = true
+      #employee.skip_confirmation!
+      employee.save
     end  
   end
 end

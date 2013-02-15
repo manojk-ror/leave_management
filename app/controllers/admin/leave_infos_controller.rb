@@ -7,6 +7,7 @@ class Admin::LeaveInfosController < ApplicationController
 
   def show
     @leave_info = LeaveInfo.find(params[:id])
+    
   end
 
 
@@ -34,7 +35,6 @@ class Admin::LeaveInfosController < ApplicationController
     @leave_info = LeaveInfo.find(params[:id])
     if @leave_info.update_attributes(params[:leave_info])
       redirect_to admin_leave_info_path(@leave_info), notice: 'leave info was successfully updated.'
-       
     else 
       render action: "edit" 
     end

@@ -1,14 +1,23 @@
 LeaveTest::Application.routes.draw do
  
-  resources :leave_infos
+  resources :leave_infos 
   
+  root :to => 'home#index'
+
+  devise_for :employees
   namespace :admin do
-    resources :personal_infos, :leave_infos, :salaries
+    resources :personal_infos, :leave_infos, :salaries, :sessions 
+    resources :employees do
+    member do
+         get 'show_perticular_leaves'
+         get 'show_perticular_personal_info'
+         get 'show_perticular_salary'
+     end
+    end
   end  
   
 
-  devise_for :employees #, :controllers => { :sessions => "employees/sessions" }
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -24,16 +33,7 @@ LeaveTest::Application.routes.draw do
   #   resources :products
 
   # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  
 
   # Sample resource route with sub-resources:
   #   resources :products do
@@ -58,7 +58,7 @@ LeaveTest::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  
 
   # See how all your routes lay out with "rake routes"
 
