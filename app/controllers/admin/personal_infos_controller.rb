@@ -9,6 +9,7 @@ class Admin::PersonalInfosController < ApplicationController
  
   def new
     @personal_info = PersonalInfo.new
+    
   end
  
   def edit

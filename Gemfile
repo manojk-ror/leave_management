@@ -4,23 +4,24 @@ gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+group :development do
+  gem 'mysql2'
+  gem 'debugger'
+end
+
 group :production do
   gem 'pg'
 end
 
-group :development do
-  gem 'debugger'
-  gem 'mysql2'
-end
-
-gem 'devise'
+#gem 'cucumber-rails', '1.2.1', require: false
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'bootstrap-sass', '~> 2.3.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -28,6 +29,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -42,3 +44,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
+# gem 'debugger'

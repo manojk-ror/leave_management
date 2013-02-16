@@ -8,13 +8,13 @@ LeaveTest::Application.routes.draw do
   namespace :admin do
     resources :personal_infos, :leave_infos, :salaries, :sessions 
     resources :employees do
-    member do
-         get 'show_perticular_leaves'
-         get 'show_perticular_personal_info'
-         get 'show_perticular_salary'
-     end
+      member do
+        get 'show_perticular_leaves'
+         #get 'show_perticular_personal_info'
+         #get 'show_perticular_salary'
+      end
     end
-  end  
+end  
   
 
   

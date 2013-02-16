@@ -29,6 +29,8 @@ class Admin::EmployeesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
+    params[:employee].delete(:password) if params[:employee][:password].blank?
+    params[:employee].delete(:password_confirmation) if params[:employee][:password].blank? and params[:employee][:password_confirmation].blank?
     if @employee.update_attributes(params[:employee])
       redirect_to admin_employee_path(@employee), notice: 'leave info was successfully updated.'
     else 
@@ -47,12 +49,12 @@ class Admin::EmployeesController < ApplicationController
     @employe = Employee.find(params[:id])
    end
    
-   def show_perticular_personal_info
-    @employe = Employee.find(params[:id])
-   end
+   #def show_perticular_personal_info
+    #@employe = Employee.find(params[:id])
+   #end
    
-   def show_perticular_salary
-    @employe = Employee.find(params[:id])
-   end
+   #def show_perticular_salary
+   #@employe = Employee.find(params[:id])
+   #end
 end
  
