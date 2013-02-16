@@ -3,21 +3,21 @@
 <% if current_employee %>
 
   <% if current_employee.admin_status == true %>
-    <h2>Welcome Admin =>> </h2><br><center><h3><hr>
+    <h2>Welcome Admin : <%= current_employee.email %></h2><br><center><h3><hr>
     <%= link_to ' Create new registration', new_admin_employee_path %>|
-|   <%= link_to  'View Registration', admin_employees_path %> |
+    <%= link_to  'View Registration', admin_employees_path %> |
     <%= link_to 'View Profiles', admin_personal_infos_path %> |
     <%= link_to 'View Leaves', admin_leave_infos_path %> |
     <%= link_to 'View Salary', admin_salaries_path %> </h3></center><hr>
   <% else %>
-    <h2>Welcome Employee</h2><br><hr>
-    <h3><%= link_to 'Create Laeves', new_leave_info_path %> </h3>
-    <h3><%= link_to 'Show all leaves',leave_infos_path %>
+    <h2>Welcome Employee : <%= current_employee.email %></h2><br><hr>
+    <h3><%= link_to 'Create Laeves', new_leave_info_path %> |
+    <%= link_to 'Show all leaves',leave_infos_path %></h3>
   <% end %>
     <h3>
      
     <p align = right>
-    <%= link_to 'logout', destroy_employee_session_path, :method => :delete %>
+      <%= link_to 'logout', destroy_employee_session_path, :class => "btn btn-block" , :method => :delete %>
     </p></h3>
    
 <% else %>

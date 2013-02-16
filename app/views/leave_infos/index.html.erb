@@ -1,36 +1,33 @@
-<h1>Listing leave_infos</h1>
+<h1>Leaves List</h1>
 
-<table>
+<table border = 1>
   <tr>
-    <th>Employee</th>
+    <th>Applicant name</th>
+    <th>Reference status</th>
     <th>Start date</th>
     <th>End date</th>
-    <th>Status of day</th>
-    <th>Reason of leave</th>
     <th>To email ids</th>
     <th>Cc email ids</th>
-    <th>Reference status</th>
-    <th>Applicant name</th>
-    <th></th>
-    <th></th>
+    <th>Day Status</th>
+    <th>Reason of leave</th>
     <th></th>
   </tr>
 
 <% @leave_infos.each do |leave_info| %>
   <% if current_employee.id == leave_info.employee.id %>
     <tr>
-      <td><%= leave_info.employee_id %></td>
+      <%#= leave_info.employee_id %>
+      <td><%= leave_info.applicant_name %></td>
+      <td><%= leave_info.reference_status %></td>
       <td><%= leave_info.start_date %></td>
-      <td><%= leave_info.end_date %></td>
-      <td><%= leave_info.status_of_day %></td>
-      <td><%= leave_info.reason_of_leave %></td>
+      <td><%=leave_info.end_date %></td>
       <td><%= leave_info.to_email_ids %></td>
       <td><%= leave_info.cc_email_ids %></td>
-      <td><%= leave_info.reference_status %></td>
-      <td><%= leave_info.applicant_name %></td>
+      <td><%= leave_info.status_of_day %></td>
+      <td><%= leave_info.reason_of_leave %></td>
       <td><%= link_to 'Show', leave_info %></td>
-      <td><%#= link_to 'Edit', edit_leave_info_path(leave_info) %></td>
-      <td><%#= link_to 'Destroy', leave_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%#= link_to 'Edit', edit_leave_info_path(leave_info) %>
+      <%#= link_to 'Destroy', leave_info, method: :delete, data: { confirm: 'Are you sure?' } %>
     </tr>
   <% end %>
 <% end %>

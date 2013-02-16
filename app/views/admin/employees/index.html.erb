@@ -1,6 +1,6 @@
 <h1>Listing employees</h1>
 
-<table>
+<table border = 1>
   <tr>
     <th>Employee</th>
     <th>Email</th>
@@ -19,12 +19,12 @@
     <td><%= employee.encrypted_password %></td>
     <td><%= employee.date_of_joining %></td>
     <td><%= employee.admin_status %></td>
-    <td>|<%= link_to 'Show', admin_employee_path(employee) %>|</td>
-    <td><%= link_to 'Edit', edit_admin_employee_path(employee) %>|</td>
+    <td><%= link_to 'Show', admin_employee_path(employee) %></td>
+    <td><%= link_to 'Edit', edit_admin_employee_path(employee) %></td>
     <td><%= link_to 'Destroy', admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' } %>|</td>
-    <td>|<%#= link_to 'Fill Personal Info', edit_admin_personal_info_path(employee) %>|</td>
-    <td>|<%= link_to 'show leaves', show_perticular_leaves_admin_employee_path(employee) %>|</td>
-    <td>|<%#= link_to 'show Salary', show_perticular_salary_admin_employee_path(employee) %>|</td> 
+    <td><%#= link_to 'Fill Personal Info', edit_admin_personal_info_path(employee) %></td>
+    <td><%= link_to 'show leaves', show_perticular_leaves_admin_employee_path(employee) %></td>
+    <td><%#= link_to 'show Salary', show_perticular_salary_admin_employee_path(employee) %></td> 
   </tr>
 <% end %>
 </table>
