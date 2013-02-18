@@ -1,29 +1,6 @@
-<%= form_for([:admin, @employee]) do |f| %>
-  
+<h1>New Ragistration</h1>
 
-   <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-   </div>   
+<%= render 'form' %>
 
-   <div class="field">  
-      <%= f.label :password %> <br />
-      <%= f.password_field :password %>
-   </div>
+<%= link_to 'Back', admin_employees_path, :class => "btn" %>
 
-   <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-   </div>
-   
-   <div><%= f.label :date_of_joining %><br />
-  <%= f.date_select :date_of_joining, :start_year => 2000, :end_year => 2050 %></div> 
-
-  <div><%= f.label :admin_status %><br />
-  <%= f.check_box :admin_status %></div> 
-
-   <div class="actions">
-      <%= f.submit %>
-   </div>
-
-<% end %>

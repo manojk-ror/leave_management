@@ -4,16 +4,21 @@ class Admin::PersonalInfosController < ApplicationController
   end
 
   def show
+    #@employee = Employee.find(params[:id])
     @personal_info = PersonalInfo.find(params[:id])
   end
  
   def new
+    #@employe = Employee.find(params[:id])
     @personal_info = PersonalInfo.new
+    
     
   end
  
   def edit
+    #@employee = Employee.find(params[:id])
     @personal_info = PersonalInfo.find(params[:id])
+    
   end
 
   def create
@@ -40,6 +45,22 @@ class Admin::PersonalInfosController < ApplicationController
     @personal_info = PersonalInfo.find(params[:id])
     @personal_info.destroy
     redirect_to [:admin,@personal_info]
+  end
+  def show_perticular_personal_info
+    @employee = Employee.find(params[:id])
+    @personal = PersonalInfo.where(:employee_id => @employee.id)[0]
+    if @personal.present?
+      render "record_created"
+    else
+     @personal_info = PersonalInfo.new
+     render "show_perticular_personal_info"
+      
+    
+       #notice: 'Personal info was successfully render.'
+   end
+    #@personal_info = PersonalInfo.find(params[:id])
+  end
+  def record_created
   end
   
 end

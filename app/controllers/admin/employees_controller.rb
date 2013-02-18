@@ -49,9 +49,6 @@ class Admin::EmployeesController < ApplicationController
     @employe = Employee.find(params[:id])
    end
    
-   #def show_perticular_personal_info
-    #@employe = Employee.find(params[:id])
-   #end
    
    #def show_perticular_salary
    #@employe = Employee.find(params[:id])

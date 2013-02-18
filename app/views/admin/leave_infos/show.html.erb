@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Employee:</b>
-  <%= @leave_info.employee_id %>
+  <b>Leave Status:</b>
+  <%= @leave_info.leave_status %>
 </p>
-
-
 
 <p>
   <b>Start date:</b>
@@ -48,5 +46,8 @@
 </p>
 
 
+
 <%= link_to 'Edit', edit_admin_leave_info_path(@leave_info) %> |
 <%= link_to 'Back', admin_leave_infos_path %>
+<%#= link_to 'Accept', admin_leave_info_path(@leave_info), :method => 'put', :class =>"btn" %>
+<%#= link_to 'Reject', admin_leave_info_path(@leave_info), :method => 'put', :class =>"btn" %>

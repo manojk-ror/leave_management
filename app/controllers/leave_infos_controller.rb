@@ -22,7 +22,7 @@ class LeaveInfosController < ApplicationController
     @leave_info = LeaveInfo.new(params[:leave_info])
 
       if @leave_info.save
-        redirect_to @leave_info, notice: 'Leave info was successfully created.' 
+        redirect_to [:admin, @leave_info], notice: 'Leave info was successfully created.' 
       else
         render action: "new" 
       end

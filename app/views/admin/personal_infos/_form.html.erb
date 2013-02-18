@@ -12,9 +12,10 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :employee_id %>
+    <%#= f.label :employee_id %>
     <%#= current_employee.id %><br />
-    <%= f.text_field :employee_id %>
+    <%#= f.text_field :employee_id %>
+    <%= f.hidden_field :employee_id %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -41,8 +42,8 @@
     <%= f.text_field :local_address %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%#= f.label :email %><br />
+    <%= f.hidden_field :email %>
   </div>
   <div class="field">
     <%= f.label :alternate_email %><br />

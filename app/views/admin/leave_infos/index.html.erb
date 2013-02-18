@@ -1,6 +1,6 @@
 <h1>Listing leave_infos</h1>
 
-<table border = 1>
+<table class="table">
   <tr>
     <th>Employee</th>
     <th>Date Of Join</th>
@@ -31,14 +31,14 @@
     <td><%= leave_info.reference_status %></td>
     <td><%= leave_info.applicant_name %></td>
     <td><%= leave_info.leave_status %></td>
-    <td><%= link_to 'Show', admin_leave_info_path(leave_info) %></td>
-    <td><%= link_to 'Edit', edit_admin_leave_info_path(leave_info) %></td>
-    <td><%= link_to 'Destroy', admin_leave_info_path(leave_info), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', admin_leave_info_path(leave_info), :class => "btn" %></td>
+    <td><%= link_to 'Leave Status ', edit_admin_leave_info_path(leave_info), :class => "btn"%> </td>
+    <td><%= link_to 'Destroy', admin_leave_info_path(leave_info), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%> </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Leave info', new_admin_leave_info_path %>
-<%= link_to 'GoTo Main page', root_path %>
+<%= link_to 'New Leave info', new_admin_leave_info_path, :class => "btn"%> 
+<%= link_to 'home index', root_path, :class => "btn" %>

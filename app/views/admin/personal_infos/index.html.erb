@@ -1,8 +1,7 @@
 <h1>Listing personal_infos</h1>
 
-<table border = 1>
+<table class="table">
   <tr>
-    <th>Employee</th>
     <th>Name</th>
     <th>Father name</th>
     <th>Mother name</th>
@@ -20,7 +19,6 @@
 
 <% @personal_infos.each do |personal_info| %>
   <tr>
-    <td><%= personal_info.employee_id %></td>
     <td><%= personal_info.name %></td>
     <td><%= personal_info.father_name %></td>
     <td><%= personal_info.mother_name %></td>
@@ -31,14 +29,14 @@
     <td><%= personal_info.alternate_email %></td>
     <td><%= personal_info.phone %></td>
     <td><%= personal_info.home_phone %></td>
-    <td><%= link_to 'Show', admin_personal_info_path(personal_info) %></td>
-    <td><%= link_to 'Edit', edit_admin_personal_info_path(personal_info) %></td>
-    <td><%= link_to 'Destroy', admin_personal_info_path(personal_info), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', admin_personal_info_path(personal_info), :class => "btn"%></td>
+    <td><%= link_to 'Leave Status', edit_admin_personal_info_path(personal_info), :class => "btn"%></td>
+    <td><%= link_to 'Destroy', admin_personal_info_path(personal_info), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Personal info', new_admin_personal_info_path %>
-<%= link_to 'GoTo Main page', root_path %>
+<%#= link_to 'New Personal info', new_admin_personal_info_path %>
+<%= link_to 'home', root_path, :class => "btn"%>

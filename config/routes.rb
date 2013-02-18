@@ -6,15 +6,25 @@ LeaveTest::Application.routes.draw do
 
   devise_for :employees
   namespace :admin do
-    resources :personal_infos, :leave_infos, :salaries, :sessions 
+    resources :leave_infos, :sessions 
     resources :employees do
       member do
         get 'show_perticular_leaves'
-         #get 'show_perticular_personal_info'
-         #get 'show_perticular_salary'
       end
     end
-end  
+    resources :personal_infos do
+      member do
+        get 'show_perticular_personal_info'
+        get 'record_created'
+      end
+    end 
+    resources :salaries do
+      member do
+        get 'add_salary'
+        get 'record_created'
+      end
+    end     
+  end  
   
 
   

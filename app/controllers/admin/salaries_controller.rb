@@ -45,5 +45,19 @@ class Admin::SalariesController < ApplicationController
     @salary.destroy
     redirect_to [:admin, @salary] 
   end
+  
+  def add_salary
+   @employee = Employee.find(params[:id])
+    @salary_info = Salary.where(:employee_id => @employee.id)[0]
+    if @salary_info.present?
+      render "record_created"
+    else
+     @salary = Salary.new
+     render "add_salary"
+    end
+  end
+  
+  def record_created
+  end
 
 end

@@ -2,27 +2,22 @@
   
 
    <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email %>
       <%= f.text_field :email %>
    </div>   
-
    <div class="field">  
-      <%= f.label :password %> <br />
+      <%= f.label :password %> 
       <%= f.password_field :password %>
    </div>
-
    <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
    </div>
-   
-   <div><%= f.label :date_of_joining %><br />
+   <div><%= f.label :date_of_joining %>
   <%= f.date_select :date_of_joining, :start_year => 2000, :end_year => 2050 %></div> 
-
-  <div><%= f.label :admin_status %><br />
+  <div><%= f.label :admin_status %>
   <%= f.check_box :admin_status %></div> 
-
-   <div class="actions">
+  <div class="actions">
       <%= f.submit %>
    </div>
 
