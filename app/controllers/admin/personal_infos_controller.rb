@@ -1,6 +1,7 @@
 class Admin::PersonalInfosController < ApplicationController
   def index
     @personal_infos = PersonalInfo.all
+    @employees = Employee.all
   end
 
   def show
@@ -61,6 +62,14 @@ class Admin::PersonalInfosController < ApplicationController
     #@personal_info = PersonalInfo.find(params[:id])
   end
   def record_created
+    @employee = Employee.find(params[:id])
+    @personal = PersonalInfo.find(params[:id])
+    render "record_created"
   end
+  
+    def profile
+   @employees = Employee.all
+    @personal_infos = PersonalInfo.all
+   end
   
 end

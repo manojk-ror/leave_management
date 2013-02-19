@@ -48,8 +48,8 @@ class Admin::SalariesController < ApplicationController
   
   def add_salary
    @employee = Employee.find(params[:id])
-    @salary_info = Salary.where(:employee_id => @employee.id)[0]
-    if @salary_info.present?
+    @sal = Salary.where(:employee_id => @employee.id)[0]
+    if @sal.present?
       render "record_created"
     else
      @salary = Salary.new
@@ -58,6 +58,13 @@ class Admin::SalariesController < ApplicationController
   end
   
   def record_created
+    @employee = Employee.find(params[:id])
+     @sal = Salary.find(params[:id])
+     render "record_created"
   end
-
+  
+  def salary
+  @salaries = Salary.all 
+  @employees = Employee.all
+  end 
 end

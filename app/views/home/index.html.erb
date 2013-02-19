@@ -1,29 +1,26 @@
-<center><h1>GrepRuby Webtech Leave & Salary Management</h1></center>
-<hr><br>
+<center><legend>GrepRuby Webtech Leave & Salary Management</legend></center>
 <% if current_employee %>
-
   <% if current_employee.admin_status == true %>
-    <center><h4>Welcome Admin : <%= current_employee.email %></h2><br><center><h$></center><hr>
-    <%= link_to ' Create new registration', new_admin_employee_path, :class => "btn btn-inverse" %>
-    <%= link_to  'View Registration', admin_employees_path, :class => "btn btn-inverse" %> 
-    <%= link_to 'View Profiles', admin_personal_infos_path, :class => "btn btn-inverse" %> 
-    <%= link_to 'View Leaves', admin_leave_infos_path, :class => "btn btn-inverse" %> 
-    <%= link_to 'View Salary', admin_salaries_path, :class => "btn btn-inverse" %> </h3></center><hr>
+    <ul class="nav nav-pills">
+      <li ><%= link_to  'Registration', admin_employees_path, :class => "btn btn-info" %></li> 
+      <li><%= link_to 'Profiles', admin_personal_infos_path, :class => "btn btn-info" %></li>
+      <li><%= link_to 'Leaves', admin_leave_infos_path, :class => "btn btn-info" %></li>
+      <li><%= link_to 'Salary', admin_salaries_path, :class => "btn btn-info" %></li>
+    </ul>
+    <legend>Welcome Admin : <%= current_employee.email %></legend>
   <% else %>
-    <h2>Welcome Employee : <%= current_employee.email %></h2><br><hr>
-    <h3><%= link_to 'Create Laeves', new_leave_info_path, :class => "btn  btn-inverse" %> 
-    <%= link_to 'Show all leaves',leave_infos_path, :class => "btn  btn-inverse" %></h3>
+    Welcome Employee : <%= current_employee.email %>
+    <%= link_to 'Create Laeves', new_leave_info_path, :class => "btn  btn-inverse" %> 
+    <%= link_to 'Show all leaves',leave_infos_path, :class => "btn  btn-inverse" %>
   <% end %>
-    <h3>
-     
-    <p align = right>
-      <%= link_to 'logout', destroy_employee_session_path, :method => :delete, :class => "btn btn-danger"  %>
-    </p></h3>
-   
+    <%= link_to 'logout', destroy_employee_session_path, :method => :delete, :class => "btn"  %>
+  
 <% else %>
-  <h3><%= link_to 'Sign In User', new_employee_session_path, :class => "btn  btn-inverse" %></h3>
+  <%= link_to 'Sign in', new_employee_session_path, :class => "btn" %>
 <% end %>
-
-
+</center>
+    
+    
+    
 
 

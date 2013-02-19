@@ -45,13 +45,9 @@ class Admin::EmployeesController < ApplicationController
     redirect_to [:admin, @employee]
   end
   
-  def show_perticular_leaves
-    @employe = Employee.find(params[:id])
-   end
+  
    
    
-   #def show_perticular_salary
-   #@employe = Employee.find(params[:id])
-   #end
+ 
 end
  

@@ -1,11 +1,16 @@
-<h1>Listing leave_infos</h1>
+<ul class="nav nav-pills">
+      <li ><%= link_to 'Home', root_path, :class => "btn  btn-info"  %></li>
+      <li ><%= link_to 'New Leave info', new_admin_leave_info_path, :class => "btn  btn-info"%></li> 
+      <li><%= link_to 'Particular leaves', leaves_admin_leave_infos_path, :class => "btn  btn-info"%></li>
+    </ul>
+<legend>Listing leave_infos</legend>
 
-<table class="table">
+<table>
   <tr>
-    <th>Employee</th>
     <th>Date Of Join</th>
     <th>Start date</th>
     <th>End date</th>
+    <th>Total day</th>
     <th>Status of day</th>
     <th>Reason of leave</th>
     <th>To email ids</th>
@@ -17,28 +22,31 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @leave_infos.each do |leave_info| %>
-  <tr>
-    <td><%= leave_info.employee_id %></td>
-    <td><%= current_employee.date_of_joining %></td>
-    <td><%= leave_info.start_date %></td>
-    <td><%= leave_info.end_date %></td>
-    <td><%= leave_info.status_of_day %></td>
-    <td><%= leave_info.reason_of_leave %></td>
-    <td><%= leave_info.to_email_ids %></td>
-    <td><%= leave_info.cc_email_ids %></td>
-    <td><%= leave_info.reference_status %></td>
-    <td><%= leave_info.applicant_name %></td>
-    <td><%= leave_info.leave_status %></td>
-    <td><%= link_to 'Show', admin_leave_info_path(leave_info), :class => "btn" %></td>
-    <td><%= link_to 'Leave Status ', edit_admin_leave_info_path(leave_info), :class => "btn"%> </td>
-    <td><%= link_to 'Destroy', admin_leave_info_path(leave_info), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%> </td>
-  </tr>
-<% end %>
+  <%# total_count = 0 %> 
+  <% @leave_infos.each do |leave_info| %>
+    <% count = 0 %>
+    <tr>
+      <td><%= current_employee.date_of_joining %></td>
+      <td><%= leave_info.start_date %></td>
+      <td><%= leave_info.end_date %></td>
+      <% start_time =  leave_info.start_date %>
+      <% end_time   =  leave_info.end_date %>
+      <td><%= count += distance_of_time_in_words(start_time, end_time).to_i  %></td>
+      <%# total_count+= count %>
+      <td><%= leave_info.status_of_day %></td>
+      <td><%= leave_info.reason_of_leave %></td>
+      <td><%= leave_info.to_email_ids %></td>
+      <td><%= leave_info.cc_email_ids %></td>
+      <td><%= leave_info.reference_status %></td>
+      <td><%= leave_info.applicant_name %></td>
+      <td><%= leave_info.leave_status %></td>
+      <td><%= link_to 'Show', admin_leave_info_path(leave_info), :class => "btn" %></td>
+      <td><%= link_to 'Leave Status ', edit_admin_leave_info_path(leave_info), :class => "btn"%> </td>
+      <td><%= link_to 'Destroy', admin_leave_info_path(leave_info), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%> </td>
+    </tr>
+  <% end %>
 </table>
+ 
 
-<br />
 
-<%= link_to 'New Leave info', new_admin_leave_info_path, :class => "btn"%> 
-<%= link_to 'home index', root_path, :class => "btn" %>
+
