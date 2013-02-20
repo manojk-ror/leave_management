@@ -1,0 +1,8 @@
+<table class = "table">
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%=  employee.email %></td>
+      <td><%= link_to 'Fill Personal Info',show_perticular_personal_info_admin_personal_info_path(employee), :class => "btn"%> </td>
+    </tr>
+  <% end %>
+</table>

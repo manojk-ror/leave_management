@@ -1,0 +1,12 @@
+<table>
+<tr>
+  <th>Id</th>
+  <th>details</th>
+</tr>  
+<tr>
+<% @employees.each do |employee| %>
+<td><%= employee.id %></td>
+<td><%= link_to 'Salary detail', add_salary_admin_salary_path(employee), :class => "btn" %></td><br />
+</tr>
+<% end %>
+</table>
