@@ -29,9 +29,9 @@
       <td><%= current_employee.date_of_joining %></td>
       <td><%= leave_info.start_date %></td>
       <td><%= leave_info.end_date %></td>
-      <% start_time =  leave_info.start_date %>
-      <% end_time   =  leave_info.end_date %>
-      <td><%= count += distance_of_time_in_words(start_time, end_time).to_i  %></td>
+      <%# start_time =  leave_info.start_date %>
+      <%# end_time   =  leave_info.end_date %>
+      <td><%#= count += distance_of_time_in_words(start_time, end_time).to_i  %></td>
       <%# total_count+= count %>
       <td><%= leave_info.status_of_day %></td>
       <td><%= leave_info.reason_of_leave %></td>

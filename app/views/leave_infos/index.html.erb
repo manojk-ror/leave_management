@@ -1,4 +1,4 @@
-<h1>Leaves List</h1>
+<legend>Leaves List</legend>
 
 <table class="table">
   <tr>
@@ -11,6 +11,7 @@
     <th>Cc email ids</th>
     <th>Day Status</th>
     <th>Reason of leave</th>
+    <th>Leave_status</th>
     <th></th>
   </tr>
 <% total_count = 0 %> 
@@ -23,17 +24,18 @@
       <td><%= leave_info.reference_status %></td>
       <td><%= leave_info.start_date %></td>
       <td><%= leave_info.end_date %></td>
-      <% start_time =  leave_info.start_date %>
-      <% end_time   =  leave_info.end_date %>
-      <td><%= count += distance_of_time_in_words(start_time, end_time).to_i  %></td>
+      
+      <%# start_time =  leave_info.start_date %>
+      <%# end_time   =  leave_info.end_date %>
+      
+      <td><%#= count += distance_of_time_in_words(start_time, end_time).to_i  %></td>
       <% total_count+= count %>
       <td><%= leave_info.to_email_ids %></td>
       <td><%= leave_info.cc_email_ids %></td>
       <td><%= leave_info.status_of_day %></td>
       <td><%= leave_info.reason_of_leave %></td>
+      <td><%= leave_info.leave_status  %>
       <td><%= link_to 'Show', leave_info, :class => "btn" %></td>
-      <%#= link_to 'Edit', edit_leave_info_path(leave_info) %>
-      <%#= link_to 'Destroy', leave_info, method: :delete, data: { confirm: 'Are you sure?' } %>
     </tr>
   <% end %>
 <% end %>

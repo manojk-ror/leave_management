@@ -23,6 +23,9 @@ class Admin::LeaveInfosController < ApplicationController
 
   def create
     @leave_info = LeaveInfo.new(params[:leave_info])
+    if(@leave_info.applicant_name == '')
+        @leave_info.applicant_name = current_employee.personal_info.name
+    end
     if @leave_info.save
       redirect_to [:admin, @leave_info], notice: 'Leave info was successfully created.' 
     else

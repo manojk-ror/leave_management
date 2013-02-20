@@ -14,33 +14,31 @@ class LeaveInfosController < ApplicationController
     @leave_info = LeaveInfo.new
   end
 
-  def edit
-    @leave_info = LeaveInfo.find(params[:id])
-  end
+  #def edit
+    #@leave_info = LeaveInfo.find(params[:id])
+  #end
 
   def create
     @leave_info = LeaveInfo.new(params[:leave_info])
-
+      if(@leave_info.applicant_name == '')
+        @leave_info.applicant_name = current_employee.personal_info.name
+      end
       if @leave_info.save
-        redirect_to [:admin, @leave_info], notice: 'Leave info was successfully created.' 
+        redirect_to leave_infos_path, notice: 'Leave info was successfully created.' 
       else
         render action: "new" 
       end
   end
 
-  def update
-    @leave_info = LeaveInfo.find(params[:id])
-    if @leave_info.update_attributes(params[:leave_info])
-      redirect_to @leave_info, notice: 'Leave info was successfully updated.'
-    else
-      render action: "edit" 
-    end
-  end
+  #def update
+   #@leave_info = LeaveInfo.find(params[:id])
+    #if @leave_info.update_attributes(params[:leave_info])
+     # redirect_to @leave_infos_path, notice: 'Leave info was successfully updated.'
+   # else
+      #render action: "edit" 
+    #end
+  #end
 
-  def destroy
-    @leave_info = LeaveInfo.find(params[:id])
-    @leave_info.destroy
-    redirect_to leave_infos_url 
-  end
+  
   
 end
