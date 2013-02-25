@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214152031) do
+ActiveRecord::Schema.define(:version => 20130225164800) do
 
   create_table "employees", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -58,10 +58,10 @@ ActiveRecord::Schema.define(:version => 20130214152031) do
     t.string   "local_address"
     t.string   "email"
     t.string   "alternate_email"
-    t.string   "phone",             :limit => 120
-    t.string   "home_phone",        :limit => 120
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.string   "phone"
+    t.string   "home_phone"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "salaries", :force => true do |t|
