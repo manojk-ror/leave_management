@@ -1,7 +1,20 @@
+<div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Leave-Management</a>
+        <ul class="nav">
+          <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
+          <li><%= link_to '<i class="icon-back" ></i> Back'.html_safe, admin_leave_infos_path %></li>
+        </ul>  
+        <ul class ="nav pull-right">
+          <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+  </div> 
+
+
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span8 well">
-    <%= link_to 'Back', admin_leave_infos_path, :class => "btn btn-info"  %>
       <p id="notice"><%= notice %></p>
 
       <p>
@@ -51,7 +64,7 @@
 
 
 
-      <%#= link_to 'Edit', edit_admin_leave_info_path(@leave_info) %> |
+      <%#= link_to 'Edit', edit_admin_leave_info_path(@leave_info) %> 
       <%#= link_to 'Accept', admin_leave_info_path(@leave_info), :method => 'put', :class =>"btn" %>
       <%#= link_to 'Reject', admin_leave_info_path(@leave_info), :method => 'put', :class =>"btn" %>
     </div>
