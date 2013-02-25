@@ -1,9 +1,20 @@
+   <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Leave-Management</a>
+        <ul class="nav">
+           <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
+          <li><%= link_to 'Create leave',new_leave_info_path %></li>
+          <li><%= link_to 'Show all leaves',leave_infos_path %></li>
+        </ul>
+        <ul class="nav pull-right">  
+          <li ><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
+        </ul>
+      </div>
+    </div>
+
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span10 well">
-      <%= link_to 'New Leave info', new_leave_info_path, :class => "btn btn-info" %>
-      <%= link_to 'home', root_path, :class => "btn btn-info" %>
-      
       <%= render :partial => "leave_show" %> 
       <center><legend>All Leaves List</legend></center>
       <table class="table table-hover">
