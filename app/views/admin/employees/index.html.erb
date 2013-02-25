@@ -1,11 +1,19 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Leave-Management</a>
+    <ul class="nav">
+      <li ><%= link_to 'Home', root_path %></li>
+      <li ><%= link_to ' Add new employee', new_admin_employee_path %></li>
+    </ul>  
+    <ul class ="nav pull-right">
+      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
+    </ul>
+  </div>
+</div>
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span11 well">
-      <ul class="nav nav-pills">
-        <li ><%= link_to 'Home', root_path, :class => "btn  btn-info"  %></li>
-        <li ><%= link_to ' Add new employee', new_admin_employee_path, :class => "btn btn-info" %></li> 
-      </ul>
-      <legend>Listing employees</legend>    
+      <center><legend>Listing employees</legend></center>    
       <table class="table">
         <tr>
           <th>Email</th>
