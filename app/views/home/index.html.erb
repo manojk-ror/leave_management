@@ -1,32 +1,64 @@
 
-<% if current_employee %>
-  <% if current_employee.admin_status == true %>
-    <ul class="nav nav-pills">
-      <li ><%= link_to  'Registration', admin_employees_path, :class => "btn btn-info" %></li> 
-      <li><%= link_to 'Profiles', admin_personal_infos_path, :class => "btn btn-info" %></li>
-      <li><%= link_to 'Leaves', admin_leave_infos_path, :class => "btn btn-info" %></li>
-      <li><%= link_to 'Salary', admin_salaries_path, :class => "btn btn-info" %></li>
-    </ul>
-    <legend>Welcome Admin : <%= current_employee.email %></legend>
-  <% else %>
-    Welcome Employee : <%= current_employee.email %><br /><hr>
-    <%= link_to 'Create Laeves', new_leave_info_path, :class => "btn  btn-inverse " %> 
-    <%= link_to 'Show all leaves',leave_infos_path, :class => "btn  btn-inverse" %>
-  <% end %>
-    <%= link_to 'logout', destroy_employee_session_path, :method => :delete, :class => "btn"  %>
-  
-<% else %>
-  <%= link_to '<i class="icon-home"></i> Sign in'.html_safe, new_employee_session_path, :class => "btn btn-large" %>
-  
-<% end %>
-</center>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span12 well">
+      <% if current_employee %>
+        <% if current_employee.admin_status == true %>
+          <ul class="nav nav-tabs">
+            <li><%= link_to  'Registration', admin_employees_path, :class => "btn btn-info" %></li> 
+            <li><%= link_to 'Profiles', admin_personal_infos_path, :class => "btn btn-info" %></li>
+            <li><%= link_to 'Leaves', admin_leave_infos_path, :class => "btn btn-info" %></li>
+            <li><%= link_to 'Salary', admin_salaries_path, :class => "btn btn-info" %></li>
+         
+          <ul class="nav nav-tabs">
+             <li class="dropdown pull-right">
+               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                 <%= current_employee.personal_info.name %>
+                 <b class="caret"></b>
+               </a>
+               <ul class="dropdown-menu">
+                 <%= link_to 'logout', destroy_employee_session_path, :method => :delete, :class => "btn btn-danger btn-large" %><br/>
+               </ul>
+             </li>
+           </ul>
+          <h2>Welcome Admin : <%= current_employee.email %></h2>
+        <% else %>
+          <ul class="nav nav-tabs" >
+          <% if current_employee %>
+           <li ><%= link_to 'Home' , root_path, :class => "btn btn-info btn-large" %></li>
+           <li > <%= link_to 'Create Laeves', new_leave_info_path, :class => "btn  btn-info " %> </li>
+           <li ><%= link_to 'Show all leaves',leave_infos_path, :class => "btn  btn-info" %></li>
+           <ul class="nav nav-tabs">
+             <li class="dropdown pull-right">
+               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                 <%= current_employee.personal_info.name %>
+                 <b class="caret"></b>
+               </a>
+               <ul class="dropdown-menu">
+                 <%= link_to 'logout', destroy_employee_session_path, :method => :delete, :class => "btn btn-danger btn-large" %><br/>
+               </ul>
+             </li>
+           </ul>
+          <% end %>
+          Welcome Employee : <%= current_employee.email %><hr>
+        <% end %>
+          <%= link_to 'logout', destroy_employee_session_path, :method => :delete, :class => "btn btn-danger"  %>
+        
+      <% else %>
+        <div >
+        <%= link_to '<i class="icon-home" ></i> Sign in'.html_safe, new_employee_session_path, :class => "btn btn-success" %>
+       </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
- 
- 
-  
 
-    
-    
-    
+
+
+
+
+
+
 
 

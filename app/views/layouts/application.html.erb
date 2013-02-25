@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
-  <%= csrf_meta_tag %>
   <title>LeaveTest</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <div id="header" >
-    <center><legend><font color ="003300">GrepRuby Webtech Leave & Salary Management</font></legend></center>
-  </div>
- 
+  <center><h2><font color ="003300">GrepRuby Webtech Leave & Salary Management</font></h2></center><hr>
+</head>
 <body>
-   
+
 <%= yield %>
 </body>
 </html>

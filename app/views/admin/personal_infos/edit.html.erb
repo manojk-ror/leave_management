@@ -1,9 +1,11 @@
-<h1>Editing Personal info</h1>
-<%= render :partial => '/admin/personal_infos/form' %>
-
-
-<%#= render 'form' %>
-
-<%= link_to 'Show', admin_personal_info_path(@personal_info) %> |
-<%= link_to 'Back', admin_personal_infos_path %>
-
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset2 span8 well">
+    <legend>Editing Personal info</legend>
+    <%= render :partial => '/admin/personal_infos/form' %>
+    <%#= render 'form' %>
+    <%= link_to 'Show', admin_personal_info_path(@personal_info), :class => "btn btn-info"  %> 
+    <%= link_to 'Back', admin_personal_infos_path, :class => "btn btn-info"  %>
+    </div>
+  </div>
+</div>

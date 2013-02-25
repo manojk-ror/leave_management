@@ -1,31 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset1 span11 well">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Employee:</b>
-  <%= @employee.id %>
-</p>
+      <p>
+        <b>Employee:</b>
+        <%= @employee.id %>
+      </p>
 
-<p>
-  <b>Email id:</b>
-  <%= @employee.email %>
-</p>
+      <p>
+        <b>Email id:</b>
+        <%= @employee.email %>
+      </p>
 
-<p>
-  <b>Password:</b>
-  <%= @employee.encrypted_password %>
-</p>
+      <p>
+        <b>Password:</b>
+        <%= @employee.encrypted_password %>
+      </p>
 
-<p>
-  <b>Date of Joining: </b>
-  <%= @employee.date_of_joining %>
-</p>
+      <p>
+        <b>Date of Joining: </b>
+        <%= @employee.date_of_joining %>
+      </p>
 
-<p>
-  <b>Admin Status:</b>
-  <%= @employee.admin_status %>
-</p>
+      <p>
+        <b>Admin Status:</b>
+        <%= @employee.admin_status %>
+      </p>
 
 
 
-<%= link_to 'Edit', edit_admin_employee_path(@employee) %> |
-<%= link_to 'Back', admin_employees_path %>
+      <%= link_to 'Edit', edit_admin_employee_path(@employee), :class => "btn btn-info" %> 
+      <%= link_to 'Back', admin_employees_path, :class => "btn btn-info" %>
+    </div>
+  </div>
+</div>

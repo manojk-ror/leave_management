@@ -1,66 +1,87 @@
-<%= form_for(@leave_info) do |f| %>
-  <% if @leave_info.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@leave_info.errors.count, "error") %> prohibited this leave_info from being saved:</h2>
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset2 span8 well">
+      <%= form_for(@leave_info, :validate => true) do |f| %>
+        <% if @leave_info.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@leave_info.errors.count, "error") %> prohibited this leave_info from being saved:</h2>
 
-      <ul>
-      <% @leave_info.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+            <ul>
+            <% @leave_info.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+         <div class="field">
+          <%= f.check_box :reference_status %>
+          <%= f.label :reference_status %>
+        </div>
+        
+        <div class="field" style="visibility:hidden;" id="applicant_field">
+          <%= f.label :applicant_name %>
+          <%= f.text_field :applicant_name %>
+        </div>
+        
+        <div class="field">
+          <br /><%= f.label :to_email_ids %>
+          <%= f.text_field :to_email_ids %>
+        </div>
+        <div class="field">
+          <br /><%= f.label :cc_email_ids %>
+          <%= f.text_field :cc_email_ids %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :Employee_id %> <%#= f.text_field :employee_id %>
+          <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
+        </div>
+        
+        <div class="field">
+           <%= f.hidden_field(:leave_status, :value => "pending") %>
+        </div>
+        
+        <div class="field">
+          <br /><%= f.label :start_date %>
+          <%= f.text_field :start_date, :class => 'datepicker' %>
+        </div>
+        <div class="field">
+          <br /><%= f.label :end_date %>
+          <%= f.text_field :end_date, :class => 'datepicker' %>
+        </div>
+        <div class="field">
+        
+          <br /><%= f.label :status_of_day %>
+          <%#= f.text_field :status_of_day %>
+          <%= f.select(:status_of_day, [['Half', 0.5], ['Full', 1]]) %>
+        </div>
+        <div class="field">
+          <%= f.label :reason_of_leave %><br />
+          <%= f.text_area(:reason_of_leave, :rows => "5", :cols => "40") %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-  
- 
-  <div class="field">
-    <%= f.label :applicant_name %><br />
-    <%= f.text_field :applicant_name %>
   </div>
-  
-   <div class="field">
-    <br /><%= f.check_box :reference_status %>
-    <%= f.label :reference_status %><br />
-  </div>
-  
-  <div class="field">
-    <br /><%= f.label :to_email_ids %><br />
-    <%= f.text_field :to_email_ids %>
-  </div>
-  <div class="field">
-    <br /><%= f.label :cc_email_ids %><br />
-    <%= f.text_field :cc_email_ids %>
-  </div>
+</div>
 
-  <div class="field">
-    <%#= f.label :Employee_id %> <%#= f.text_field :employee_id %>
-    <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
-  </div>
-  
-  <div class="field">
-     <%= f.hidden_field(:leave_status, :value => "pending") %>
-  </div>
-  
-  <div class="field">
-    <br /><%= f.label :start_date %>
-    <%= f.date_select :start_date,:start_year => 2000, :end_year => 2050 %>
-  </div>
-  <div class="field">
-    <br /><%= f.label :end_date %>
-    <%= f.date_select :end_date,:start_year => 2000, :end_year => 2050%>
-  </div>
-  <div class="field">
-  
-    <br /><%= f.label :status_of_day %>
-    <%#= f.text_field :status_of_day %>
-    <%= f.select(:status_of_day, [['Half', 0.5], ['Full', 1]]) %>
-  </div>
-  <div class="field">
-    <%= f.label :reason_of_leave %><br />
-    <%= f.text_area :reason_of_leave %>
-  </div>
+<script>
 
+$('.datepicker').datepicker({format:'yyyy-mm-dd'});
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  $('#leave_info_reference_status').click(function()
+  {
+    if($(this).is(':checked'))
+      {
+        $('#applicant_field').css("visibility","visible");
+      }
+    else
+      {
+        $('#applicant_field').css("visibility","hidden");
+      }
+    
+  });
+</script>

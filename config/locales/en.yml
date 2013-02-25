@@ -3,3 +3,10 @@
 
 en:
   hello: "Hello world"
+
+
+en:
+  errors:
+    messages:
+      email_format: "is not formatted properly"
+

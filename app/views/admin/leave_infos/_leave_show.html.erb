@@ -1,0 +1,13 @@
+<%= form_tag "/admin/leave_infos", :method => "get" do %>
+  Start Date:
+  <%= text_field_tag :start_date %>
+  End Date:
+  <%= text_field_tag "end_date" %>
+  <%= submit_tag "Find Leaves", :class =>"btn btn-success " %>
+<% end %>
+<script>
+  $(function() {
+    $( "#start_date" ).datepicker({format:'yyyy-mm-dd'});
+    $( "#end_date" ).datepicker({format:'yyyy-mm-dd'});
+    });
+</script>

@@ -2,11 +2,17 @@ class LeaveInfosController < ApplicationController
   #before_filter :create_object_existing_tables, :only => :new
 
   def index
-    @leave_infos = LeaveInfo.all
+    if !params[:start_date].blank? and !params[:end_date].blank?
+      @leave_infos = LeaveInfo.where("start_date >= ? AND end_date <= ?", params[:start_date],params[:end_date] )
+    else
+      @leave_infos = current_employee.leave_infos
+    end
+    
   end
 
   def show
-    @leave_info = LeaveInfo.find(params[:id])
+    #@leave_info = LeaveInfo.find(params[:id])
+    @leave_info = current_employee.leave_infos.where(:id => params[:id]).first
     
   end
 

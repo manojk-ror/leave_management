@@ -1,33 +1,39 @@
-<h1>Listing salaries</h1>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span12 well">
+      <legend>Listing salaries</legend>
 
-<table class="table">
-  <tr>
-    <th>Applicable month  </th>
-    <th>Previous month salary  </th>
-    <th>Applicable salary  </th>
-    <th>Deduction  </th>
-    <th>Deduction description  </th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <table class="table">
+        <tr>
+          <th>Applicable month  </th>
+          <th>Previous month salary  </th>
+          <th>Applicable salary  </th>
+          <th>Deduction  </th>
+          <th>Deduction description  </th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
 
-<% @salaries.each do |salary| %>
-  <tr>
-    <td><%= salary.applicable_month %></td>
-    <td><%= salary.previous_month_salary %></td>
-    <td><%= salary.applicable_salary %></td>
-    <td><%= salary.deduction %></td>
-    <td><%= salary.deduction_description %></td>
-    <td><%= link_to 'Show', admin_salary_path(salary), :class => "btn"%></td>
-    <td><%= link_to 'Modify', edit_admin_salary_path(salary), :class => "btn"%></td>
-    <td><%= link_to 'Destroy', admin_salary_path(salary), :method =>:delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
-  </tr>
-<% end %>
-</table>
+      <% @salaries.each do |salary| %>
+        <tr>
+          <td><%= salary.applicable_month %></td>
+          <td><%= salary.previous_month_salary %></td>
+          <td><%= salary.applicable_salary %></td>
+          <td><%= salary.deduction %></td>
+          <td><%= salary.deduction_description %></td>
+          <td><%= link_to 'Show', admin_salary_path(salary), :class => "btn btn-info"%></td>
+          <td><%= link_to 'Modify', edit_admin_salary_path(salary), :class => "btn btn-info"%></td>
+          <td><%= link_to 'Destroy', admin_salary_path(salary), :method =>:delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
+        </tr>
+      <% end %>
+      </table>
 
-<br />
+      <br />
 
-<%#= link_to 'New Salary', new_admin_salary_path, :class => "btn"%><br>
-<%= link_to 'home', root_path, :class => "btn"%>
-<%= link_to 'Salary detail', salary_admin_salaries_path, :class => "btn" %>
+      <%#= link_to 'New Salary', new_admin_salary_path, :class => "btn btn-info"%><br>
+      <%= link_to 'home', root_path, :class => "btn btn-info"%>
+      <%= link_to 'Salary detail', salary_admin_salaries_path, :class => "btn btn-info" %>
+    </div>
+  </div>
+</div>  

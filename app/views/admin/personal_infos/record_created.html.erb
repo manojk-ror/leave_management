@@ -1,7 +1,9 @@
-<legend>Personal information is already filled</legend>
-<%#= link_to 'back', admin_employees_path %>
-
-    <%= form_for([:admin, @personal]) do |f| %> 
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset2 span8 well">
+     <%= link_to 'Back', admin_personal_infos_path, :class => "btn btn-info"  %>
+     <legend>Personal information is already filled</legend>
+     <%= form_for([:admin, @personal]) do |f| %> 
       <% if @personal.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@personal_info.errors.count, "error") %> prohibited this personal_info from being saved:</h2>
@@ -31,7 +33,7 @@
       </div>
       <div class="field">
         <%= f.label :date_of_birth %>
-        <%= f.datetime_select :date_of_birth, :start_year => 1948, :end_year => 2050 %>
+        <%= f.text_field :date_of_birth, :class => 'datepicker' %>
       </div>
       <div class="field">
         <%= f.label :permanent_address %>
@@ -61,5 +63,10 @@
         <%= f.submit %>
       </div>
     <% end %>
-
+    </div>
+  </div>
+</div>    
+<script>
+  $('.datepicker').datepicker({format:'yyyy-mm-dd'});
+</script>
 

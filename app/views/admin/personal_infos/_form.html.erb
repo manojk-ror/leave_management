@@ -31,7 +31,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.datetime_select :date_of_birth, :start_year => 1948, :end_year => 2050 %>
+    <%= f.text_field :date_of_birth, :class => 'datepicker' %>
   </div>
   <div class="field">
     <%= f.label :permanent_address %><br />
@@ -61,3 +61,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+    $('.datepicker').datepicker({format:'yyyy-mm-dd'});
+</script>

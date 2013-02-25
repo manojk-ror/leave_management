@@ -1,7 +1,13 @@
 class Admin::LeaveInfosController < ApplicationController
  
   def index
-    @leave_infos = LeaveInfo.all
+    if !params[:start_date].blank? and !params[:end_date].blank?
+      @leave_infos = LeaveInfo.find_by_date(params[:start_date],params[:end_date])
+    else
+      
+      @leave_infos = LeaveInfo.latest_leave.all
+      
+    end
   end
 
 
@@ -57,5 +63,6 @@ class Admin::LeaveInfosController < ApplicationController
     @leave_infos = LeaveInfo.all
     @employees = Employee.all
   end
+ 
 
 end

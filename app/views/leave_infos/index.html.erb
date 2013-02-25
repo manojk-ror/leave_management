@@ -1,48 +1,45 @@
-<legend>Leaves List</legend>
-
-<table class="table">
-  <tr>
-    <th>Applicant name</th>
-    <th>Reference status</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Total day</th>
-    <th>To email ids</th>
-    <th>Cc email ids</th>
-    <th>Day Status</th>
-    <th>Reason of leave</th>
-    <th>Leave_status</th>
-    <th></th>
-  </tr>
-<% total_count = 0 %> 
-<% @leave_infos.each do |leave_info| %>
-  <% count = 0 %>
-  <% if current_employee.id == leave_info.employee.id %>
-    <tr>
-      <%#= leave_info.employee_id %>
-      <td><%= leave_info.applicant_name %></td>
-      <td><%= leave_info.reference_status %></td>
-      <td><%= leave_info.start_date %></td>
-      <td><%= leave_info.end_date %></td>
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset1 span10 well">
+      <%= link_to 'New Leave info', new_leave_info_path, :class => "btn btn-info" %>
+      <%= link_to 'home', root_path, :class => "btn btn-info" %>
       
-      <%# start_time =  leave_info.start_date %>
-      <%# end_time   =  leave_info.end_date %>
-      
-      <td><%#= count += distance_of_time_in_words(start_time, end_time).to_i  %></td>
-      <% total_count+= count %>
-      <td><%= leave_info.to_email_ids %></td>
-      <td><%= leave_info.cc_email_ids %></td>
-      <td><%= leave_info.status_of_day %></td>
-      <td><%= leave_info.reason_of_leave %></td>
-      <td><%= leave_info.leave_status  %>
-      <td><%= link_to 'Show', leave_info, :class => "btn" %></td>
-    </tr>
-  <% end %>
-<% end %>
-</table>
-<b> Total Leave:</b>
-<%= total_count %>
-<br />
+      <%= render :partial => "leave_show" %> 
+      <center><legend>All Leaves List</legend></center>
+      <table class="table table-hover">
+        <tr>
+          <th>Applicant name</th>
+          <th>Reference status</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Total day</th>
+          <th>Leave_status</th>
+          <th></th>
+        </tr>
+      <% total_count = 0 %> 
+      <% @leave_infos.each do |leave_info| %>
+        <% count = 0 %>
+       
+          <tr>
+            <%#= leave_info.employee_id %>
+            <td><%= leave_info.applicant_name %></td>
+            <td><%= leave_info.reference_status %></td>
+            <td><%= leave_info.start_date %></td>
+            <td><%= leave_info.end_date %></td>
 
-<%= link_to 'New Leave info', new_leave_info_path, :class => "btn" %>
-<%= link_to 'home', root_path, :class => "btn" %>
+            
+            <td><%= count += distance_of_time_in_words(leave_info.start_date,leave_info.end_date).to_i  %></td>
+            <% total_count+= count %>
+            <td><%= leave_info.leave_status  %>
+            <td><%= link_to 'Show', leave_info, :class => "btn btn-info" %></td>
+          </tr>
+      <% end %>
+      </table>
+      <b> Total Leave:</b>
+      <%= total_count %>
+    </div>
+  </div>
+</div>
+      
+
+

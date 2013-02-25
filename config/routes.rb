@@ -10,10 +10,11 @@ LeaveTest::Application.routes.draw do
     resources :leave_infos do
       member do
         get 'show_perticular_leaves'
-        
+        post 'leave_maintain'
       end
       collection do
         get 'leaves'
+        get 'leave_show'
       end
     end
     resources :personal_infos do

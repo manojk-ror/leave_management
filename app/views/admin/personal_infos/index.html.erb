@@ -1,41 +1,34 @@
-<%= link_to 'home', root_path, :class => "btn btn-info" %>
-<%= link_to 'Add Personal Info', profile_admin_personal_infos_path, :class => "btn btn-info"  %>
-<legend>Listing personal_infos</legend>
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Father name</th>
-    <th>Mother name</th>
-    <th>Date of birth</th>
-    <th>Permanent address</th>
-    <th>Local address</th>
-    <th>Email</th>
-    <th>Alternate email</th>
-    <th>Phone</th>
-    <th>Home phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @personal_infos.each do |personal_info| %>
-    <tr>
-      <td><%= personal_info.name %></td>
-      <td><%= personal_info.father_name %></td>
-      <td><%= personal_info.mother_name %></td>
-      <td><%= personal_info.date_of_birth %></td>
-      <td><%= personal_info.permanent_address %></td>
-      <td><%= personal_info.local_address %></td>
-      <td><%= personal_info.email %></td>
-      <td><%= personal_info.alternate_email %></td>
-      <td><%= personal_info.phone %></td>
-      <td><%= personal_info.home_phone %></td>
-      <td><%= link_to 'Show', admin_personal_info_path(personal_info), :class => "btn"%></td>
-      <td><%= link_to 'Edit', edit_admin_personal_info_path(personal_info), :class => "btn"%></td>
-      <td><%= link_to 'Destroy', admin_personal_info_path(personal_info), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
-    </tr>
-  <% end %>
-</table>
-
+<div class="container">
+  <div class="row-fluid">
+    <div class="span12 well">
+    <%= link_to 'home', root_path, :class => "btn btn-info" %>
+    <%= link_to 'Add Personal Info', profile_admin_personal_infos_path, :class => "btn btn-info"  %>
+    <legend>Listing personal_infos</legend>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @personal_infos.each do |personal_info| %>
+        <tr>
+          <td><%= personal_info.name %></td>
+          <td><%= personal_info.date_of_birth %></td>
+          <td><%= personal_info.email %></td>
+          <td><%= personal_info.phone %></td>
+          <td><%= link_to 'Show', admin_personal_info_path(personal_info), :class => "btn btn-info"%></td>
+          <td><%= link_to 'Edit', edit_admin_personal_info_path(personal_info), :class => "btn btn-info"%></td>
+          <td><%= link_to 'Destroy', admin_personal_info_path(personal_info), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  </div>
+</div>
 
 
 

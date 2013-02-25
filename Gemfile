@@ -14,6 +14,9 @@ group :production do
   gem 'pg'
 end
 
+#gem 'client_side_validations'
+
+
 #gem 'cucumber-rails', '1.2.1', require: false
 
 # Gems used only for assets and not required
@@ -45,3 +48,7 @@ gem 'devise'
 
 # To use debugger
 # gem 'debugger'
+
+
+
+

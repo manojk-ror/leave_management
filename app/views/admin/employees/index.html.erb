@@ -1,28 +1,35 @@
-<ul class="nav nav-pills">
-  <li ><%= link_to 'Home', root_path, :class => "btn  btn-info"  %></li>
-  <li ><%= link_to ' Add new employee', new_admin_employee_path, :class => "btn btn-info" %></li> 
-</ul>
-<legend>Listing employees</legend>    
-<table class="table">
-  <tr>
-    <th>Email</th>
-    <th>Date Of Joining</th>
-    <th>Admin Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    </tr>
-<% @employees.each do |employee| %>
-  <tr>
-    <td><%= employee.email %></td>
-    <td><%= employee.date_of_joining %></td>
-    <td><%= employee.admin_status %></td>
-    <td><%= link_to 'Show', admin_employee_path(employee), :class => "btn" %></td>
-    <td><%= link_to 'Edit', edit_admin_employee_path(employee),:class => "btn" %></td>
-    <td><%= link_to 'Destroy', admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-danger" %></td>
-    
-  </tr>
-<% end %>
-</table>
-<br />
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset1 span11 well">
+      <ul class="nav nav-pills">
+        <li ><%= link_to 'Home', root_path, :class => "btn  btn-info"  %></li>
+        <li ><%= link_to ' Add new employee', new_admin_employee_path, :class => "btn btn-info" %></li> 
+      </ul>
+      <legend>Listing employees</legend>    
+      <table class="table">
+        <tr>
+          <th>Email</th>
+          <th>Date Of Joining</th>
+          <th>Admin Status</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          </tr>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.email %></td>
+          <td><%= employee.date_of_joining %></td>
+          <td><%= employee.admin_status %></td>
+          <td><%= link_to 'Show', admin_employee_path(employee), :class => "btn btn-info" %></td>
+          <td><%= link_to 'Edit', edit_admin_employee_path(employee), :class => "btn btn-info" %></td>
+          <td><%= link_to 'Destroy', admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+          
+        </tr>
+      <% end %>
+      </table>
+      <br />
+    </div>
+  </div>
+</div>
+      
 

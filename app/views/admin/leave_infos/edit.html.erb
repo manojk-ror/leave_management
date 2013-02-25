@@ -1,60 +1,66 @@
-<h1>Editing leave_info</h1>
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset1 span11 well">
+      <legend>Editing leave_info</legend>
 
-<%= form_for([:admin, @leave_info]) do |f| %>
-  <% if @leave_info.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@leave_info.errors.count, "error") %> prohibited this leave_info from being saved:</h2>
+      <%= form_for([:admin, @leave_info]) do |f| %>
+        <% if @leave_info.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@leave_info.errors.count, "error") %> prohibited this leave_info from being saved:</h2>
 
-      <ul>
-      <% @leave_info.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+            <ul>
+            <% @leave_info.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+          <br /><b>Leave Status:</b>
+          <% if @leave_info.leave_status == "pending" %> 
+            <%= f.select(:leave_status, [['Accept', "Accept"], ['Reject', "Reject"], ['Pending', "pending"]]) %>
+          <% else %>
+             <%= @leave_info.leave_status %>
+          <% end %>
+          
+         <br /><b>Applicant Name : </b>
+          <%= @leave_info.applicant_name %>
+          <%= f.hidden_field :applicant_name %>
+       
+          <br /><b>Reference Status :</b>
+          <%= @leave_info.reference_status %>
+          <%= f.hidden_field :reference_status %>
+
+
+          <br /><b>Email send to : </b>
+          <%= @leave_info.to_email_ids %>
+          <%= f.hidden_field :to_email_ids %>
+
+
+          <br/><b>Copy of emails : </b>
+          <%= @leave_info.cc_email_ids %>
+          <%= f.hidden_field :cc_email_ids %>
+
+          <br/><b>Starting Date of Leave </b>
+          <%= @leave_info.start_date %>
+          <%= f.hidden_field :start_date %>
+
+          <br/><b>End Date of Leave : </b>
+          <%= @leave_info.end_date %>
+          <%= f.hidden_field :end_date %>
+
+          <br/><b>Status of day :</b>
+          <%= f.hidden_field :status_of_day %>
+          <%= @leave_info.status_of_day %>
+
+          <br /><b>reason_of_leave :</b>
+          <%= f.hidden_field :reason_of_leave %>
+          <%= @leave_info.reason_of_leave %><br /><br />
+          <%= f.submit %>
       <% end %>
-      </ul>
+
+      <%#= link_to 'Show', admin_leave_infos_path, :class => "btn btn-info"%> 
+      <%#= link_to 'Back', admin_leave_infos_path, :class =>"btn btn-info" %>
     </div>
-  <% end %>
-
-    <br /><b>Leave Status:</b>
-    <% if @leave_info.leave_status == "pending" %> 
-      <%= f.select(:leave_status, [['Accept', "Accept"], ['Reject', "Reject"], ['Pending', "pending"]]) %>
-    <% else %>
-       <%= @leave_info.leave_status %>
-    <% end %>
-    
-   <br /><b>Applicant Name : </b>
-    <%= @leave_info.applicant_name %>
-    <%= f.hidden_field :applicant_name %>
- 
-    <br /><b>Reference Status :</b>
-    <%= @leave_info.reference_status %>
-    <%= f.hidden_field :reference_status %>
-
-
-    <br /><b>Email send to : </b>
-    <%= @leave_info.to_email_ids %>
-    <%= f.hidden_field :to_email_ids %>
-
-
-    <br/><b>Copy of emails : </b>
-    <%= @leave_info.cc_email_ids %>
-    <%= f.hidden_field :cc_email_ids %>
-
-    <br/><b>Starting Date of Leave </b>
-    <%= @leave_info.start_date %>
-    <%= f.hidden_field :start_date %>
-
-    <br/><b>End Date of Leave : </b>
-    <%= @leave_info.end_date %>
-    <%= f.hidden_field :end_date %>
-
-    <br/><b>Status of day :</b>
-    <%= f.hidden_field :status_of_day %>
-    <%= @leave_info.status_of_day %>
-
-    <br /><b>reason_of_leave :</b>
-    <%= f.hidden_field :reason_of_leave %>
-    <%= @leave_info.reason_of_leave %><br /><br />
-    <%= f.submit %>
-<% end %>
-
-<%#= link_to 'Show', admin_leave_infos_path %> 
-<%#= link_to 'Back', admin_leave_infos_path, :class =>"btn" %>
+  </div>
+</div>      
