@@ -49,12 +49,6 @@ class Admin::LeaveInfosController < ApplicationController
     end
   end
 
-
-  def destroy
-    @leave_info = LeaveInfo.find(params[:id])
-    @leave_info.destroy
-    redirect_to [:admin, @leave_info]
-  end
   def show_perticular_leaves
     @employe = Employee.find(params[:id])
   end
