@@ -2,7 +2,7 @@
   <% if(current_employee.admin_status == true) %>
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="#">Leave-Management</a>
+        <a class="brand" href="#"> Leave-Management</a>
         <ul class="nav">
           <li><%= link_to  'Registration', admin_employees_path %></li>
           <li><%= link_to 'Profiles', admin_personal_infos_path %></li>
@@ -14,12 +14,17 @@
       </ul>
     </div>
   </div>
-  <h4>Welcome Admin : <%= current_employee.personal_info.name %></h4>
+  <div class="container">
+    <div class="hero-unit">
+      <h2>Welcome!</h2><br />
+      <p><h4>Employee : <%= current_employee.personal_info.name %></h4></p>
+    </div>
+  <div>
     
   <% else %> 
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="#">Leave-Management</a>
+        <a class="brand" href="#"> Leave-Management</a>
         <ul class="nav">
           <li><%= link_to 'Create leave',new_leave_info_path %></li>
           <li><%= link_to 'Show all leaves',leave_infos_path %></li>
@@ -29,19 +34,90 @@
         </ul>
       </div>
     </div>
-    <h4>Welcome Employee : <%= current_employee.personal_info.name %></h4><hr>
+    <div class="container">
+      <div class="hero-unit">
+        <h2>Welcome!</h2><br />
+        <p><h4>Employee : <%= current_employee.personal_info.name %></h4></p>
+      </div>
+    <div>
+
     
   <% end%>
 <% else %>
 
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="#">Leave-Management</a>
+        <a class="brand" href="#"> Leave-Management</a>
+        <ul class = "nav">
+        <li><a  href="#about">About</a></li>
+        <li><a  href="#contact">Contact</a></li>
+        </ul>
         <ul class="nav pull-right">
-          <li><%= link_to 'Sign in'.html_safe,  new_employee_session_path %></li>
+          <li><%#= link_to 'Current_User ?',  root_path %></li>
         </ul>
       </div>
     </div>
+    
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h2>Welcome!,Grepruby Employee</h2>
+        
+        <p><%= link_to 'Sign in'.html_safe,  new_employee_session_path, :class => "btn btn-primary btn-large" %></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Website Details</h2>
+          <p>http://www.grepruby.com/</p>
+          <p><a class="btn" href="#">View details »</a></p>
+        </div>
+        <div class="span4">
+          <h2>Emails</h2>
+          <p>
+            E-mail: hr@grepruby.com
+          </p>
+          <p><a class="btn" href="#">View details »</a></p>
+       </div>
+        <div class="span4">
+          <h2>Contact</h2>
+          <p>Head Quarter<br />
+            GrepRuby Webtech Pvt. Ltd.<br />
+            312, Akashdeep Complex<br />
+            21, Sneh Nagar<br />
+            Sapna Sangeeta Road<br />
+            Indore, Madhaya Pradesh 452001<br />
+            Phone:0731-4279592<br />
+          </p>
+          <p><a class="btn" href="#">View details »</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy;  Grepruby Webtech Ptv Ltd 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 <% end %>  
 
 
