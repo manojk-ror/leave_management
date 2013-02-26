@@ -12,14 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%#= f.label :employee_id %><br />
-    <%#= f.text_field :employee_id %>
-    <%#= f.hidden_field(:employee_id, :value => current_employee.id) %>
      <%= f.hidden_field :employee_id %>
   </div>
   <div class="field">
     <%= f.label :applicable_month %><br />
-    <%= f.date_select :applicable_month, :start_year => 1948, :end_year => 2050 %>
+    <%#= f.date_select :applicable_month, :start_year => 1948, :end_year => 2050 %>
+     <%= f.text_field :applicable_month, :class => 'datepicker' %>
   </div>
   <div class="field">
     <%= f.label :previous_month_salary %><br />
@@ -41,3 +39,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+$('.datepicker').datepicker({format:'yyyy-mm-dd'});
+</script>
