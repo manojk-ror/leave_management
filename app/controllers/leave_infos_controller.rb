@@ -1,5 +1,5 @@
 class LeaveInfosController < ApplicationController
-  #before_filter :create_object_existing_tables, :only => :new
+  #autocomplete :employee, :email, :full => true
 
   def index
     if !params[:start_date].blank? and !params[:end_date].blank?
@@ -26,8 +26,8 @@ class LeaveInfosController < ApplicationController
 
   def create
     @leave_info = LeaveInfo.new(params[:leave_info])
-      if(@leave_info.applicant_name == '')
-        @leave_info.applicant_name = current_employee.personal_info.name
+      if(@leave_info.applicant_id == '')
+        @leave_info.applicant_id = current_employee.personal_info.name
       end
       if @leave_info.save
         redirect_to leave_infos_path, notice: 'Leave info was successfully created.' 
