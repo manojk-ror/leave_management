@@ -3,4 +3,6 @@ class PersonalInfo < ActiveRecord::Base
   validates :date_of_birth, :father_name, :mother_name, :local_address, :permanent_address, :name, :presence => true
   validates :employee_id, :email, :uniqueness => true
   belongs_to :employee
+  
+
 end
