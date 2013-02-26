@@ -1,3 +1,4 @@
+<%= javascript_include_tag "autocomplete-rails.js" %>
 <div class="container">
   <div class="row-fluid">
     <div class="offset2 span8 well">
@@ -15,22 +16,22 @@
         <% end %>
         
          <div class="field">
-          <%= f.check_box :reference_status %>
-          <%= f.label :reference_status %>
+           <p><%= f.check_box :reference_status %>
+          If you don't make own leave then click on checkbox</p>
         </div>
         
         <div class="field" style="visibility:hidden;" id="applicant_field">
-          <%= f.label :applicant_name %>
-          <%= f.text_field :applicant_name %>
+          <p>Refferal_email</p>
+          <%= f.autocomplete_field :applicant_id, autocomplete_employee_email_admin_leave_infos_path, :style => "width:300px;" %>
         </div>
         
         <div class="field">
           <br /><%= f.label :to_email_ids %>
-          <%= f.text_field :to_email_ids %>
+          <%= f.autocomplete_field :to_email_ids, autocomplete_employee_email_admin_leave_infos_path, :style => "width:300px;", 'data-delimiter' => ',' , :multiple => true %>
         </div>
         <div class="field">
           <br /><%= f.label :cc_email_ids %>
-          <%= f.text_field :cc_email_ids %>
+          <%= f.autocomplete_field :cc_email_ids, autocomplete_employee_email_admin_leave_infos_path, :style => "width:300px;", 'data-delimiter' => ',' , :multiple => true %>
         </div>
 
         <div class="field">
@@ -54,7 +55,7 @@
         
           <br /><%= f.label :status_of_day %>
           <%#= f.text_field :status_of_day %>
-          <%= f.select(:status_of_day, [['Half', 0.5], ['Full', 1]]) %>
+          <%= f.select(:status_of_day, [['All Half Day Leave', 2], [' All Full Day Leave ', 4], ['One Half  Day', 0.5],['Two Half Day' ,1],['Three Half Day' ,1.5]]) %>
         </div>
         <div class="field">
           <%= f.label :reason_of_leave %><br />
@@ -69,7 +70,6 @@
 </div>
 
 <script>
-
 $('.datepicker').datepicker({format:'yyyy-mm-dd'});
 
   $('#leave_info_reference_status').click(function()
@@ -82,6 +82,5 @@ $('.datepicker').datepicker({format:'yyyy-mm-dd'});
       {
         $('#applicant_field').css("visibility","hidden");
       }
-    
   });
 </script>
