@@ -18,7 +18,7 @@
 
       <table class ="table">
         <tr>
-          <th>Applicant name</th>
+          <th>Refferal ids</th>
           <th>Reference status</th>
           <th>Start date</th>
           <th>End date</th>
@@ -31,7 +31,7 @@
         <% count = 0 %>
       <% @employe.leave_infos.each do |leave_info| %>
         <tr>
-          <td><%= leave_info.applicant_name %></td> 
+          <td><%= leave_info.applicant_id %></td> 
           <td><%= leave_info.reference_status %></td>                 
           <td><%= leave_info.start_date %></td>
           <td><%= leave_info.end_date %></td>

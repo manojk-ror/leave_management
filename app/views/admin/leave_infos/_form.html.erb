@@ -1,3 +1,5 @@
+<%= javascript_include_tag "autocomplete-rails.js" %>
+
 <div class="container">
   <div class="row-fluid">
     <div class="offset2 span8 well">
@@ -21,21 +23,20 @@
         </div>
         
         <div class="field" style="visibility:hidden;" id="applicant_field">
-          <legend>  <%= f.label :applicant_name %>
-          <%= f.text_field :applicant_name %></legend> 
+          <p>Refferal_email</p>
+          <%= f.autocomplete_field :applicant_id, autocomplete_employee_email_admin_leave_infos_path, :style => "width:300px;" %>
         </div>
         
-        <div class="field ">
-          <legend><%= f.label :to_email_ids %>
-          <%= f.text_field :to_email_ids,:style => "width:300px;" %></legend>
+        <div class="field">
+          <br /><%= f.label :to_email_ids %>
+          <%= f.autocomplete_field :to_email_ids, autocomplete_employee_email_admin_leave_infos_path, :style => "width:300px;", 'data-delimiter' => ',' , :multiple => true %>
         </div>
         <div class="field">
-          <legend><br /><%= f.label :cc_email_ids %>
-          <%= f.text_field :cc_email_ids,:style => "width:300px;" %></legend>
+          <br /><%= f.label :cc_email_ids %>
+          <%= f.autocomplete_field :cc_email_ids, autocomplete_employee_email_admin_leave_infos_path, :style => "width:300px;", 'data-delimiter' => ',' , :multiple => true %>
         </div>
 
         <div class="field">
-          <%#= f.label :Employee_id %> <%#= f.text_field :employee_id %>
           <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
         </div>
         
@@ -54,7 +55,7 @@
         <div class="field">
         
           <legend><%= f.label :status_of_day %>
-          <%= f.select(:status_of_day, [['Half', 0.5], ['Full', 1]]) %></legend>
+          <%= f.select(:status_of_day, [['All Half Day Leave', 0.5], [' All Full Day Leave ', 1], ['One Half  Day', 0.5],['Two Half Day' ,1]]) %></legend>
         </div>
         <div class="field">
           <legend><%= f.label :reason_of_leave %>
