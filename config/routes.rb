@@ -7,6 +7,7 @@ LeaveTest::Application.routes.draw do
   devise_for :employees
   namespace :admin do
     resources :employees, :sessions 
+    
     resources :leave_infos do
       member do
         get 'show_perticular_leaves'
@@ -15,8 +16,10 @@ LeaveTest::Application.routes.draw do
       collection do
         get 'leaves'
         get 'leave_show'
+        get :autocomplete_employee_email
       end
     end
+    
     resources :personal_infos do
       member do
         get 'show_perticular_personal_info'
@@ -26,6 +29,7 @@ LeaveTest::Application.routes.draw do
         get 'profile'
       end
     end 
+    
     resources :salaries do
       member do
         get 'add_salary'
@@ -34,7 +38,8 @@ LeaveTest::Application.routes.draw do
         collection do
         get 'salary'
       end
-    end     
+    end   
+      
   end  
   
 
