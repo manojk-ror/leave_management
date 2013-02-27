@@ -1,5 +1,5 @@
 class LeaveInfosController < ApplicationController
-  #autocomplete :employee, :email, :full => true
+  autocomplete :employee, :email, :full => true
 
   def index
     if !params[:start_date].blank? and !params[:end_date].blank?
