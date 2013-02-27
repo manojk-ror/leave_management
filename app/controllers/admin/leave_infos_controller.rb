@@ -34,6 +34,7 @@ class Admin::LeaveInfosController < ApplicationController
         @leave_info.applicant_id = current_employee.personal_info.name
     end
     if @leave_info.save
+      EmployeeMailer.welcome_email(@leave_info).deliver
       redirect_to [:admin, @leave_info], notice: 'Leave info was successfully created.' 
     else
       render action: "new"      
