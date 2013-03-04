@@ -12,7 +12,6 @@
         <tr>
           <th>Applicant Name</th>
           <th>Refferal Name</th>
-          <th>Reference Status</th>
           <th>Start Date</th>
           
           <th>End Date</th>
@@ -26,7 +25,7 @@
         </tr>
         <% @leave_infos.each do |leave_info| %>
         <% unless leave_info.applicant_id.nil? %>
-          <% count = 0%>
+          <% count = 1 %>
           <tr>
             <% @e = Employee.find_by_id(leave_info.applicant_id) %>
             <td>
@@ -39,7 +38,6 @@
               <% @l = Employee.find_by_id(leave_info.employee_id) %>
               <td><%= @l.personal_info.name %>
             <% end %>  
-            <td><%= leave_info.reference_status %></td>  
                
             <td><%= leave_info.start_date %></td>
             <td><%= leave_info.end_date %></td>
