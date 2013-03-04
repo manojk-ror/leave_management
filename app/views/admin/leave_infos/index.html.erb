@@ -25,6 +25,7 @@
           <th></th>
         </tr>
         <% @leave_infos.each do |leave_info| %>
+        <% unless leave_info.applicant_id.nil? %>
           <% count = 0%>
           <tr>
             <% @e = Employee.find_by_id(leave_info.applicant_id) %>
@@ -49,6 +50,7 @@
             <td><%= link_to  leave_info.leave_status ,edit_admin_leave_info_path(leave_info) %></td> 
             <td><%= link_to 'Detail', admin_leave_info_path(leave_info), :class => "btn btn-info" %></td>
           </tr>
+         <% end %> 
         <% end %>
       </table>
     </div>
