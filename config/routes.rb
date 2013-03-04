@@ -1,6 +1,7 @@
 LeaveTest::Application.routes.draw do
  
   resources :leave_infos 
+  resources :personal_infos
   
   root :to => 'home#index'
 
@@ -11,7 +12,6 @@ LeaveTest::Application.routes.draw do
     resources :leave_infos do
       member do
         get 'show_perticular_leaves'
-        post 'leave_maintain'
       end
       collection do
         get 'leaves'
@@ -19,17 +19,6 @@ LeaveTest::Application.routes.draw do
         get :autocomplete_employee_email
       end
     end
-    
-    resources :personal_infos do
-      member do
-        get 'show_perticular_personal_info'
-        get 'record_created'
-      end
-      collection do
-        get 'profile'
-      end
-    end 
-    
     resources :salaries do
       member do
         get 'add_salary'

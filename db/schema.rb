@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226103245) do
+ActiveRecord::Schema.define(:version => 20130304070551) do
 
   create_table "employees", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130226103245) do
     t.datetime "updated_at",                             :null => false
     t.date     "date_of_joining"
     t.boolean  "admin_status"
+    t.string   "name"
   end
 
   add_index "employees", ["email"], :name => "index_employees_on_email", :unique => true
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20130226103245) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "leave_status"
-    t.string   "applicant_id"
+    t.integer  "applicant_id"
   end
 
   create_table "personal_infos", :force => true do |t|
@@ -56,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20130226103245) do
     t.datetime "date_of_birth"
     t.string   "permanent_address"
     t.string   "local_address"
-    t.string   "email"
     t.string   "alternate_email"
     t.string   "phone"
     t.string   "home_phone"

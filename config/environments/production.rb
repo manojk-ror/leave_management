@@ -73,4 +73,5 @@ LeaveTest::Application.configure do
     :domain         => 'heroku.com'
   }
   ActionMailer::Base.delivery_method = :smtp
+
 end
