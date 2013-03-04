@@ -1,6 +1,7 @@
 class Admin::LeaveInfosController < ApplicationController
- autocomplete :employee, :email, :full => true
- 
+  autocomplete :employee, :email, :full => true
+  layout "admin"
+  
   def index
     if !params[:start_date].blank? and !params[:end_date].blank?
       @leave_infos = LeaveInfo.find_by_date(params[:start_date],params[:end_date])
@@ -14,14 +15,11 @@ class Admin::LeaveInfosController < ApplicationController
 
   def show
     @leave_info = LeaveInfo.find(params[:id])
+    unless @leave_info.present?
+      redirect_to admin_leave_infos_path, notice: 'Leave info was successfully Updated.' 
+    end
     
   end
-
-
-  def new
-    @leave_info = LeaveInfo.new
-  end
-
   
   def edit
     @leave_info = LeaveInfo.find(params[:id])
@@ -52,11 +50,12 @@ class Admin::LeaveInfosController < ApplicationController
   end
 
   def show_perticular_leaves
-    @employe = Employee.find(params[:id])
+    @employee = Employee.find(params[:id])
+    @leave_infos = @employee.leave_infos.latest_leave
   end
    
-   def leaves
-    @leave_infos = LeaveInfo.all
+  def leaves
+    @leave_infos = LeaveInfo.latest_leave.all
     @employees = Employee.all
   end
  

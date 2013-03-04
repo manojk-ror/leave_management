@@ -1,5 +1,5 @@
 class Admin::SalariesController < ApplicationController
-
+  layout "admin"
   def index
     @salaries = Salary.all
   end

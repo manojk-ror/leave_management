@@ -1,5 +1,5 @@
 class Admin::EmployeesController < ApplicationController
-  
+  layout "admin"
   def index
     @employees = Employee.all
   end
@@ -10,6 +10,9 @@ class Admin::EmployeesController < ApplicationController
 
   def show
      @employee = Employee.find(params[:id])
+     unless @employee.personal_info.present?
+       redirect_to admin_employees_path, :notice =>  ' Employee Personal information  not present.'
+     end
   end
 
   def create
