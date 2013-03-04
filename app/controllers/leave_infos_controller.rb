@@ -39,7 +39,7 @@ class LeaveInfosController < ApplicationController
         @leave_info.applicant_id = @employee.id 
       end
       if @leave_info.save
-        EmployeeMailer.welcome_email(@leave_info).deliver
+        #EmployeeMailer.welcome_email(@leave_info).deliver
         redirect_to leave_infos_path, notice: 'Leave info was successfully created.' 
       else
         render action: "new" 
