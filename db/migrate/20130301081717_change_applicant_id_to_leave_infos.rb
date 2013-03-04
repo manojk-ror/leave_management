@@ -1,10 +1,11 @@
 class ChangeApplicantIdToLeaveInfos < ActiveRecord::Migration
   def up
-   change_column :leave_infos, :applicant_id, :integer
+   remove_column :leave_infos, :applicant_id
+   add_column :leave_infos, :applicant_id, :integer
   end
 
   def down
-    change_column :leave_infos, :applicant_id, :string
+    #remove_column :leave_infos, :applicant_id
   end
 end
  
