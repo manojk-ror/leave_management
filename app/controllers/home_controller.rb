@@ -6,4 +6,5 @@ class HomeController < ApplicationController
       #redirect_to new_personal_info_path
     end 
   end
+  
 end

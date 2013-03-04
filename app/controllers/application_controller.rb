@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
    redirect_to root_path
   end
  
-  
   #before_filter :authenticate_employee!
 
  

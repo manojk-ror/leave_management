@@ -6,6 +6,7 @@ class Admin::EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+    @employee.build_personal_info
   end
 
   def show
