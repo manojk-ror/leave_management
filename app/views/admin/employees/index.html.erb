@@ -1,22 +1,13 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Leave-Management</a>
-    <ul class="nav">
-      <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
-      <li ><%= link_to ' Add new employee', new_admin_employee_path %></li>
-    </ul>  
-    <ul class ="nav pull-right">
-      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-    </ul>
-  </div>
-</div>
+
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span11 well">
-      <center><legend>Listing employees</legend></center>    
+      <p id="notice"><%= notice %></p>
+      <center><legend>Listing Employees</legend></center>    
       <table class="table">
         <tr>
           <th>Email</th>
+          <th>Name</th> 
           <th>Date Of Joining</th>
           <th>Admin Status</th>
           <th></th>
@@ -24,11 +15,12 @@
           <th></th>
           </tr>
       <% @employees.each do |employee| %>
-        <tr>
-          <td><%= employee.email %></td>
+        <tr>          
+          <td><%= link_to  employee.email ,admin_employee_path(employee) %></td>
+          <td><%= employee.name %></td>
           <td><%= employee.date_of_joining %></td>
           <td><%= employee.admin_status %></td>
-          <td><%= link_to 'Show', admin_employee_path(employee), :class => "btn btn-info" %></td>
+          
           <td><%= link_to '<i class=" icon-edit" ></i> Edit'.html_safe, edit_admin_employee_path(employee), :class => "btn btn-info" %></td>
           <td><%= link_to '<i class=" icon-remove" ></i> Destroy'.html_safe, admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
         </tr>

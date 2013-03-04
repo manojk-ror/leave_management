@@ -1,24 +1,15 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Leave-Management</a>
-    <ul class="nav">
-      <li ><%= link_to 'Home', root_path %></li>
-      <li ><%= link_to 'Back', admin_employees_path %></li>
-      <li><%= link_to 'Edit', edit_admin_employee_path(@employee) %> </li>
-    </ul>  
-    <ul class ="nav pull-right">
-      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-    </ul>
-  </div>
-</div>
-
-
 
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span11 well">
+      <h5> Personal Information</h5>
       <p id="notice"><%= notice %></p>
-
+    <table class = "table">
+      <p>
+        <b>Name:</b>
+        <%= @employee.name %>
+      </p>   
+    
       <p>
         <b>Employee:</b>
         <%= @employee.id %>
@@ -28,12 +19,7 @@
         <b>Email id:</b>
         <%= @employee.email %>
       </p>
-
-      <p>
-        <b>Password:</b>
-        <%= @employee.encrypted_password %>
-      </p>
-
+      
       <p>
         <b>Date of Joining: </b>
         <%= @employee.date_of_joining %>
@@ -43,7 +29,49 @@
         <b>Admin Status:</b>
         <%= @employee.admin_status %>
       </p>
-      
+     
+
+      <p>
+        <b>Father name:</b>
+        <%= @employee.personal_info.father_name %>
+      </p>
+
+      <p>
+        <b>Mother name:</b>
+        <%= @employee.personal_info.mother_name %>
+      </p>
+
+      <p>
+        <b>Date of birth:</b>
+        <%= @employee.personal_info.date_of_birth %>
+      </p>
+
+      <p>
+        <b>Permanent address:</b>
+        <%= @employee.personal_info.permanent_address %>
+      </p>
+
+      <p>
+        <b>Local address:</b>
+        <%= @employee.personal_info.local_address %>
+      </p>
+
+      <p>
+        <b>Alternate email:</b>
+        <%= @employee.personal_info.alternate_email %>
+      </p>
+
+      <p>
+        <b>Phone:</b>
+        <%= @employee.personal_info.phone %>
+      </p>
+
+      <p>
+        <b>Home phone:</b>
+        <%= @employee.personal_info.home_phone %>
+      </p>
+      </table>
+      <%= link_to 'Back',admin_employees_path, :class =>"btn btn-info" %>
     </div>
   </div>
 </div>

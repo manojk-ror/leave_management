@@ -1,16 +1,3 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Leave-Management</a>
-    <ul class="nav">
-      <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
-    </ul>  
-    <ul class ="nav pull-right">
-      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-    </ul>
-  </div>
-</div> 
-
-
 
 <div class="container">
   <div class="row-fluid">
@@ -34,7 +21,7 @@
             </div>
             <div class="field">
               <%= f.label :applicable_month %><br />
-              <%= f.date_select :applicable_month, :start_year => 1948, :end_year => 2050 %>
+              <%= f.text_field :applicable_month, :class => 'datepicker' %>
             </div>
             <div class="field">
               <%= f.label :previous_month_salary %><br />
@@ -60,5 +47,8 @@
     </div>
   </div>
 </div>      
-          
+<script>
+  $('.datepicker').datepicker({"format": "yyyy-mm-dd", "weekStart": 0, "autoclose": true});
+</script>
+ 
 

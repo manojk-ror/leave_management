@@ -1,16 +1,3 @@
- <div class="navbar">
-      <div class="navbar-inner">
-        <a class="brand" href="#">Leave-Management</a>
-        <ul class="nav">
-          <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
-          <li ><%= link_to 'New Leave info', new_admin_leave_info_path %></li> 
-          <li><%= link_to 'Particular leaves', leaves_admin_leave_infos_path %></li>
-        </ul>  
-        <ul class ="nav pull-right">
-          <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-      </ul>
-    </div>
-  </div> 
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span11 well">
@@ -28,18 +15,26 @@
             </ul>
           </div>
         <% end %>
-
-          <br /><b>Leave Status:</b>
+          <b>Leave Status:</b>
           <% if @leave_info.leave_status == "pending" %> 
             <%= f.select(:leave_status, [['Accept', "Accept"], ['Reject', "Reject"], ['Pending', "pending"]]) %>
           <% else %>
              <%= @leave_info.leave_status %>
           <% end %>
+        
+          <p>          
+            <b>Applicant Name:</b>
+            <% @e = Employee.find_by_id(@leave_info.applicant_id) %>
+            <%= @e.name  %>
+            <%= f.hidden_field :applicant_id %>
+          </p>
+
+          <p>
+            <b>Referral Name:</b>
+            <% @l = Employee.find_by_id(@leave_info.employee_id) %>
+            <%= @l.name %>
+          </p>
           
-         <br /><b>Applicant Name : </b>
-          <%= @leave_info.applicant_name %>
-          <%= f.hidden_field :applicant_name %>
-       
           <br /><b>Reference Status :</b>
           <%= @leave_info.reference_status %>
           <%= f.hidden_field :reference_status %>
@@ -48,8 +43,7 @@
           <br /><b>Email send to : </b>
           <%= @leave_info.to_email_ids %>
           <%= f.hidden_field :to_email_ids %>
-
-
+          
           <br/><b>Copy of emails : </b>
           <%= @leave_info.cc_email_ids %>
           <%= f.hidden_field :cc_email_ids %>
@@ -72,8 +66,6 @@
           <%= f.submit %>
       <% end %>
 
-      <%#= link_to 'Show', admin_leave_infos_path, :class => "btn btn-info"%> 
-      <%#= link_to 'Back', admin_leave_infos_path, :class =>"btn btn-info" %>
     </div>
   </div>
 </div>      

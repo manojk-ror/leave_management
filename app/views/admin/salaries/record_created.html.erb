@@ -1,15 +1,3 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Leave-Management</a>
-    <ul class="nav">
-      <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
-      <li> <%= link_to '<i class ="icon-arrow-left"></i>Back'.html_safe, admin_salaries_path %></li>
-    </ul>  
-    <ul class ="nav pull-right">
-      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-    </ul>
-  </div>
-</div>
 
 <%= form_for([:admin,@sal]) do |f| %>
   <% if @sal.errors.any? %>

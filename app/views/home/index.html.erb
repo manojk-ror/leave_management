@@ -1,56 +1,58 @@
+
 <% if current_employee  %>
   <% if(current_employee.admin_status == true) %>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <a class="brand" href="#"> Leave-Management</a>
-        <ul class="nav">
-          <li><%= link_to  'Registration', admin_employees_path %></li>
-          <li><%= link_to 'Profiles', admin_personal_infos_path %></li>
-          <li><%= link_to 'Leave', admin_leave_infos_path %></li>
-          <li><%= link_to 'Salary', admin_salaries_path %></li>
-        </ul>  
-        <ul class ="nav pull-right">
-          <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-      </ul>
-    </div>
-  </div>
+  <div class="navbar">
+   <div class="navbar-inner">
+    <a class="brand" href=""> Leave-Management</a>
+    <ul class="nav">
+      <li ><%= link_to 'Registration', new_admin_employee_path %></li>
+      <li><%= link_to  'Employees', admin_employees_path %></li>
+      <li><%#= link_to 'Personal Information', admin_personal_infos_path %></li>
+      <li><%= link_to 'Leaves', admin_leave_infos_path %></li>
+      <li><%= link_to '#Salary', admin_salaries_path %></li>
+    </ul>  
+    <ul class ="nav pull-right">
+      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
+    </ul>
+   </div>
+ </div>
   <div class="container">
     <div class="hero-unit">
       <h2>Welcome!</h2><br />
-      <p><h4>Employee : <%= current_employee.personal_info.name %></h4></p>
+      <p><h4>Admin: <%= current_employee.name %></h4></p>
     </div>
   <div>
     
   <% else %> 
-    <div class="navbar">
-      <div class="navbar-inner">
-        <a class="brand" href="#"> Leave-Management</a>
-        <ul class="nav">
-          <li><%= link_to 'Create leave',new_leave_info_path %></li>
-          <li><%= link_to 'Show all leaves',leave_infos_path %></li>
-        </ul>
-        <ul class="nav pull-right">
-          <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-        </ul>
-      </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#"> Leave-Management</a>
+      <ul class="nav">
+        <li><%= link_to 'leave Application',new_leave_info_path %></li>
+        <li><%= link_to 'leaves',leave_infos_path %></li>
+        <li><%= link_to 'Personal Information', personal_infos_path %></li>
+        
+      </ul>
+      <ul class="nav pull-right">
+        <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
+      </ul>
     </div>
+  </div>
     <div class="container">
       <div class="hero-unit">
         <h2>Welcome!</h2><br />
-        <p><h4>Employee : <%= current_employee.personal_info.name %></h4></p>
+        <p><h4>Employee : <%= current_employee.name %></h4></p>
       </div>
     <div>
-
+ 
     
   <% end%>
 <% else %>
 
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="#"> Leave-Management</a>
+        <a class="brand" href="/"> Leave-Management</a>
         <ul class = "nav">
-        <li><a  href="#about">About</a></li>
-        <li><a  href="#contact">Contact</a></li>
         </ul>
         <ul class="nav pull-right">
           <li><%#= link_to 'Current_User ?',  root_path %></li>
@@ -73,14 +75,14 @@
         <div class="span4">
           <h2>Website Details</h2>
           <p>http://www.grepruby.com/</p>
-          <p><a class="btn" href="#">View details »</a></p>
+          <p><a class="btn" href="http://www.grepruby.com/">View details »</a></p>
         </div>
         <div class="span4">
           <h2>Emails</h2>
           <p>
             E-mail: hr@grepruby.com
           </p>
-          <p><a class="btn" href="#">View details »</a></p>
+          <p><a class="btn" href="http://www.grepruby.com/">View details »</a></p>
        </div>
         <div class="span4">
           <h2>Contact</h2>
@@ -92,7 +94,7 @@
             Indore, Madhaya Pradesh 452001<br />
             Phone:0731-4279592<br />
           </p>
-          <p><a class="btn" href="#">View details »</a></p>
+          <p><a class="btn" href="http://www.grepruby.com/contact-us">View details »</a></p>
         </div>
       </div>
 
@@ -103,21 +105,6 @@
       </footer>
 
     </div> <!-- /container -->
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 <% end %>  
 
 

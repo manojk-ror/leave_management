@@ -1,16 +1,5 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Leave-Management</a>
-    <ul class="nav">
-       <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
-       <li><%= link_to 'Back',leave_infos_path %></li>
-    </ul>
-    <ul class="nav pull-right">  
-      <li ><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-    </ul>
-  </div>
-</div>
-<center> <legend>Fill Form For Leave</legend></center>
+
+<center> <legend>Leave Application</legend></center>
 <%= render 'form' %>
 <% link_to 'Back',leave_infos_path,:class =>"btn btn-info" %>
 

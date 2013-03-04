@@ -1,16 +1,6 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Leave-Management</a>
-    <ul class="nav">
-      <li><%= link_to '<i class="icon-home" ></i> Home'.html_safe, root_path %></li>
-      <li><%= link_to 'Edit', edit_admin_salary_path(@salary) %></li> 
-      <li> <%= link_to 'Back', admin_salaries_path %></li>
-    </ul>  
-    <ul class ="nav pull-right">
-      <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
-    </ul>
-  </div>
-</div>
+
+      
+ 
 
 <div class="container">
   <div class="row-fluid">
@@ -47,6 +37,8 @@
         <b>Deduction description:</b>
         <%= @salary.deduction_description %>
       </p>
+      <%= link_to 'Edit', edit_admin_salary_path(@salary), :class =>"btn btn-info" %>
+      <%= link_to 'Back', admin_salaries_path, :class =>"btn btn-info" %>
     </div>
   </div>
 </div>  

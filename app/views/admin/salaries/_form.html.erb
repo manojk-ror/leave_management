@@ -16,7 +16,6 @@
   </div>
   <div class="field">
     <%= f.label :applicable_month %><br />
-    <%#= f.date_select :applicable_month, :start_year => 1948, :end_year => 2050 %>
      <%= f.text_field :applicable_month, :class => 'datepicker' %>
   </div>
   <div class="field">
@@ -40,5 +39,5 @@
   </div>
 <% end %>
 <script>
-$('.datepicker').datepicker({format:'yyyy-mm-dd'});
+$('.datepicker').datepicker({"format": "yyyy-mm-dd", "weekStart": 0, "autoclose": true});
 </script>
