@@ -9,13 +9,13 @@
       <p>
         <b>Applicant Name:</b>
         <% @e = Employee.find_by_id(@leave_info.applicant_id) %>
-        <%= @e.name %>
+        <%= @e.personal_info.name %>
       </p>
       
       <p>
         <b>Referral Name:</b>
         <% @e = Employee.find_by_id(@leave_info.employee_id) %>
-        <%= @e.name %>
+        <%= @e.personal_info.name %>
       </p>
 
       <p>

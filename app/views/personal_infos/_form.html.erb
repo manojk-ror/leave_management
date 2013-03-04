@@ -15,9 +15,9 @@
     <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
   </div>
   <div class="field">
-    <b>Name:</b>
-    <%= f.hidden_field(:name, :value => current_employee.name) %>
-    <%= current_employee.name %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <%#= current_employee.name %>
   </div><br />
   <div class="field">
     <%= f.label :father_name %><br />

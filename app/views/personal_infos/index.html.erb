@@ -15,7 +15,7 @@
       <% if @personal_infos %>
         <%# @personal_infos.each do |personal_info| %>
           <tr>
-            <td><%= current_employee.name %></td>
+            <td><%= @personal_infos.name %></td>
             <td><%= @personal_infos.date_of_birth %></td>
             <td><%= @personal_infos.phone %></td>
             <td><%= link_to 'Show', personal_info_path(@personal_infos), :class => "btn btn-info"%></td>

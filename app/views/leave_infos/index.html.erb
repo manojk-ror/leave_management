@@ -21,9 +21,14 @@
         <% count = 0 %>
             <tr>
               <% @e = Employee.find_by_id(leave_info.applicant_id) %>
-              <td><%= @e.name %></td>
-              <% @e = Employee.find_by_id(leave_info.employee_id) %>
-              <td><%= @e.name %></td>
+              <td><%= @e.personal_info.name %></td>
+              
+              <% if(leave_info.applicant_id == leave_info.employee_id) %>
+                <td> Same </td>
+              <% else %>  
+                <% @l = Employee.find_by_id(leave_info.employee_id) %>
+                <td><%= @l.personal_info.name %>
+              <% end %>
               
               <td><%= leave_info.reference_status %></td>
               <td><%= leave_info.start_date %></td>

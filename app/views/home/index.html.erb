@@ -19,7 +19,7 @@
   <div class="container">
     <div class="hero-unit">
       <h2>Welcome!</h2><br />
-      <p><h4>Admin: <%= current_employee.name %></h4></p>
+      <p><h4>Admin: <%= current_employee.email %></h4></p>
     </div>
   <div>
     
@@ -30,7 +30,7 @@
       <ul class="nav">
         <li><%= link_to 'leave Application',new_leave_info_path %></li>
         <li><%= link_to 'leaves',leave_infos_path %></li>
-        <li><%= link_to 'Personal Information', personal_infos_path %></li>
+        <li><%= link_to 'Personal Information', personal_info_path(current_employee.personal_info.id) %></li>
         
       </ul>
       <ul class="nav pull-right">
@@ -41,7 +41,7 @@
     <div class="container">
       <div class="hero-unit">
         <h2>Welcome!</h2><br />
-        <p><h4>Employee : <%= current_employee.name %></h4></p>
+        <p><h4>Employee : <%= current_employee.email %></h4></p>
       </div>
     <div>
  

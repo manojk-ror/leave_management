@@ -30,10 +30,14 @@
             <% @e = Employee.find_by_id(leave_info.applicant_id) %>
             <td>
            
-               <%= link_to  @e.name , show_perticular_leaves_admin_leave_info_path(leave_info.applicant_id) %>
+               <%= link_to  @e.personal_info.name , show_perticular_leaves_admin_leave_info_path(leave_info.applicant_id) %>
             </td> 
-            <% @l = Employee.find_by_id(leave_info.employee_id) %>
-            <td><%= @l.name %>
+            <% if(leave_info.applicant_id == leave_info.employee_id) %>
+              <td> Same </td>
+            <% else %>  
+              <% @l = Employee.find_by_id(leave_info.employee_id) %>
+              <td><%= @l.personal_info.name %>
+            <% end %>  
             <td><%= leave_info.reference_status %></td>  
                
             <td><%= leave_info.start_date %></td>

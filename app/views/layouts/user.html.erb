@@ -7,7 +7,7 @@
       <ul class="nav">
         <li><%= link_to 'leave Application',new_leave_info_path %></li>
         <li><%= link_to 'leaves',leave_infos_path %></li>
-        <li><%= link_to 'Personal Information', personal_infos_path %></li>
+        <li><%= link_to 'Personal Information', personal_info_path(current_employee.personal_info.id) %></li>
         
       </ul>
       <ul class="nav pull-right">

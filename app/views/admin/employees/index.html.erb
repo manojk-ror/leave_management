@@ -17,10 +17,12 @@
       <% @employees.each do |employee| %>
         <tr>          
           <td><%= link_to  employee.email ,admin_employee_path(employee) %></td>
-          <td><%= employee.name %></td>
+         
+          <% if employee.personal_info.present? %>
+            <td><%= employee.personal_info.name %></td>
+          <% end %>
           <td><%= employee.date_of_joining %></td>
           <td><%= employee.admin_status %></td>
-          
           <td><%= link_to '<i class=" icon-edit" ></i> Edit'.html_safe, edit_admin_employee_path(employee), :class => "btn btn-info" %></td>
           <td><%= link_to '<i class=" icon-remove" ></i> Destroy'.html_safe, admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
         </tr>

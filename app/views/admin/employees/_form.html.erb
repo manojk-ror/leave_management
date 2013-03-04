@@ -12,10 +12,13 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>   
+  
+  <%= f.fields_for :personal_info do |personal_info_form| %>
+    <%= personal_info_form.label :name %>
+    <%= personal_info_form.text_field :name %>
+  <% end %>
+  
+     
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>

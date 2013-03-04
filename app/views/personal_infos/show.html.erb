@@ -7,7 +7,7 @@
       <p id="notice"><%= notice %></p>
       <p>
         <b>Name:</b>
-        <%= current_employee.name %>
+        <%= current_employee.personal_info.name %>
       </p>
 
       <p>
@@ -50,7 +50,6 @@
         <%= @personal_info.home_phone %>
       </p>
       <%= link_to 'Edit', edit_personal_info_path(@personal_info.id), :method => 'GET', :class => "btn btn-info"  %> 
-      <%= link_to 'Back', personal_infos_path, :class => "btn btn-info"  %>
     </div>
   </div>
 </div>    
