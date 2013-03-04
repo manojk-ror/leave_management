@@ -1,0 +1,20 @@
+
+<div class="container">
+  <div class="row-fluid">
+    <div class="span12 well">
+      <h3> Show Individual Leaves </h3>
+      <table class= "table">
+        <tr>
+          <th> Email</th>
+          <th> Links</th>
+        </tr>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.email %></td>
+          <td><%= link_to 'show particular leave',show_perticular_leaves_admin_leave_info_path(employee), :class => "btn btn-info"%> </td><br />
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>    

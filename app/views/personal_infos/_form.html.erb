@@ -1,0 +1,62 @@
+<%= form_for(@personal_info) do |f| %> 
+  <% if @personal_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@personal_info.errors.count, "error") %> prohibited this personal_info from being saved:</h2>
+
+      <ul>
+      <% @personal_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.hidden_field(:employee_id, :value => current_employee.id) %>
+  </div>
+  <div class="field">
+    <b>Name:</b>
+    <%= f.hidden_field(:name, :value => current_employee.name) %>
+    <%= current_employee.name %>
+  </div><br />
+  <div class="field">
+    <%= f.label :father_name %><br />
+    <%= f.text_field :father_name %>
+  </div>
+  <div class="field">
+    <%= f.label :mother_name %><br />
+    <%= f.text_field :mother_name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.text_field :date_of_birth, :class => 'datepicker' %>
+  </div>
+  <div class="field">
+    <%= f.label :permanent_address %><br />
+    <%= f.text_field :permanent_address %>
+  </div>
+  <div class="field">
+    <%= f.label :local_address %><br />
+    <%= f.text_field :local_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alternate_email %><br />
+    <%= f.text_field :alternate_email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.number_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :home_phone %><br />
+    <%= f.number_field :home_phone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+   $('.datepicker').datepicker({"format": "yyyy-mm-dd", "weekStart": 0, "autoclose": true});
+</script>

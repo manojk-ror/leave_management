@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/"> Leave-Management</a>
+      <ul class="nav">
+        <li><%= link_to 'leave Application',new_leave_info_path %></li>
+        <li><%= link_to 'leaves',leave_infos_path %></li>
+        <li><%= link_to 'Personal Information', personal_infos_path %></li>
+        
+      </ul>
+      <ul class="nav pull-right">
+        <li><%= link_to 'logout', destroy_employee_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+  </div>
+  <title>LeaveTest</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+
+<%= yield %>
+</body>
+</html>
