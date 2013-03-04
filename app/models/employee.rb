@@ -6,14 +6,14 @@ class Employee < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :date_of_joining, :admin_status
-  validates :email, :password, :password_confirmation,:date_of_joining, :presence => true
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :date_of_joining, :admin_status, :name
+  validates  :name, :email, :password, :password_confirmation,:date_of_joining, :presence => true
   validates_uniqueness_of :email
   validates :email, :email_format => true
   # attr_accessible :title, :body
   
   has_one :personal_info, :dependent => :destroy
-  has_many :leave_infos, :dependent => :destroy
+  has_many :leave_infos,  :foreign_key => "applicant_id", :dependent => :destroy
   has_one :salary, :dependent => :destroy
-
+  #:foreign_key => "applicant_id",
 end
