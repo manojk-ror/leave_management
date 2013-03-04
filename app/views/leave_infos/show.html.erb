@@ -15,7 +15,7 @@
       <p>
         <b>Referral Name:</b>
         <% if(@leave_info.applicant_id == @leave_info.employee_id) %>
-           Same 
+           Self 
         <% else %>  
           <% @l = Employee.find_by_id(@leave_info.employee_id) %>
           <%= @l.personal_info.name %>

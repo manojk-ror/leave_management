@@ -2,7 +2,7 @@
   <div class="row-fluid">
     <div class="offset1 span8 well">
       <p id="notice"><%= notice %></p>
-      <h5> Leave Apllication Details </h5>
+      <h5> Leave Application Details </h5>
       <p>
         <b>Applicant Name:</b>
          <% @e = Employee.find_by_id(@leave_info.applicant_id) %>
@@ -12,7 +12,7 @@
       <p>
         <b>Referral Name:</b>
         <% if(@leave_info.applicant_id == @leave_info.employee_id) %>
-           Same 
+           Self 
         <% else %>  
           <% @l = Employee.find_by_id(@leave_info.employee_id) %>
           <%= @l.personal_info.name %>

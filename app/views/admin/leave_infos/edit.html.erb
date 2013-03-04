@@ -17,7 +17,7 @@
         <% end %>
           <b>Leave Status:</b>
           <% if @leave_info.leave_status == "pending" %> 
-            <%= f.select(:leave_status, [['Accept', "Accept"], ['Reject', "Reject"], ['Pending', "pending"]]) %>
+            <%= f.select(:leave_status, [['Approved', "Approved"], ['Rejected', "Rejected"], ['Pending', "pending"]]) %>
           <% else %>
              <%= @leave_info.leave_status %>
           <% end %>

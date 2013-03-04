@@ -3,10 +3,10 @@
 <div class="container">
   <div class="row-fluid">
     <div class=" span12 well">
-    
+      <legend>Find leaves between dates</legend>
       <%= render :partial => "leave_show" %>    
           
-      <center><legend>Listing leave_infos</legend></center>
+      <legend>All Employee leaves</legend>
 
       <table class= "table">
         <tr>
@@ -33,7 +33,7 @@
                <%= link_to  @e.personal_info.name , show_perticular_leaves_admin_leave_info_path(leave_info.applicant_id) %>
             </td> 
             <% if(leave_info.applicant_id == leave_info.employee_id) %>
-              <td> Same </td>
+              <td> Self </td>
             <% else %>  
               <% @l = Employee.find_by_id(leave_info.employee_id) %>
               <td><%= @l.personal_info.name %>

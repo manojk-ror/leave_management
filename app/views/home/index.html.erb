@@ -19,7 +19,7 @@
   <div class="container">
     <div class="hero-unit">
       <h2>Welcome!</h2><br />
-      <p><h4>Admin: <%= current_employee.email %></h4></p>
+      <p><h4>Admin:  <%= current_employee.personal_info.name.capitalize %></h4></p>
     </div>
   <div>
     
@@ -28,9 +28,9 @@
     <div class="navbar-inner">
       <a class="brand" href="#"> Leave-Management</a>
       <ul class="nav">
-        <li><%= link_to 'leave Application',new_leave_info_path %></li>
-        <li><%= link_to 'leaves',leave_infos_path %></li>
-        <li><%= link_to 'Personal Information', personal_info_path(current_employee.personal_info.id) %></li>
+        <li><%= link_to 'Leave application',new_leave_info_path %></li>
+        <li><%= link_to 'Total leaves',leave_infos_path %></li>
+        <li><%= link_to 'Personal information', personal_info_path(current_employee.personal_info.id) %></li>
         
       </ul>
       <ul class="nav pull-right">
@@ -41,7 +41,7 @@
     <div class="container">
       <div class="hero-unit">
         <h2>Welcome!</h2><br />
-        <p><h4>Employee : <%= current_employee.email %></h4></p>
+        <p><h4>Employee : <%= current_employee.personal_info.name.capitalize %></h4></p>
       </div>
     <div>
  
@@ -55,7 +55,7 @@
         <ul class = "nav">
         </ul>
         <ul class="nav pull-right">
-          <li><%#= link_to 'Current_User ?',  root_path %></li>
+          <li><%= link_to '<i class = "icon-user"></i>Sign in'.html_safe,  new_employee_session_path %></li>
         </ul>
       </div>
     </div>
@@ -67,7 +67,7 @@
       <div class="hero-unit">
         <h2>Welcome!,Grepruby Employee</h2>
         
-        <p><%= link_to 'Sign in'.html_safe,  new_employee_session_path, :class => "btn btn-primary btn-large" %></p>
+        <p><%#= link_to 'Sign in'.html_safe,  new_employee_session_path, :class => "btn btn-primary btn-large" %></p>
       </div>
 
       <!-- Example row of columns -->

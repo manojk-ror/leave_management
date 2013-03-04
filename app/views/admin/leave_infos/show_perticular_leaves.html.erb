@@ -2,13 +2,14 @@
 <div class="container">
   <div class="row-fluid">
     <div class="span12 well">
-      <center><legend>Listing leave_infos</legend></center>
+      
+      <legend>Find leaves between dates</legend>
       <%= render :partial => "leave_show" %>
+      <legend>Total leaves</legend>
       <table class ="table">
         <tr>
           <th>Applicant Name</th>
           <th>Refferal Name</th>
-          <th>Reference Status</th>
           <th>Start Date</th>
           
           <th>End Date</th>
@@ -31,12 +32,11 @@
           <%# end %>
           </td> 
           <% if(leave_info.applicant_id == leave_info.employee_id) %>
-            <td> Same </td>
+            <td> Self</td>
           <% else %>  
             <% @l = Employee.find_by_id(leave_info.employee_id) %>
             <td><%= @l.personal_info.name %>
           <% end %>
-          <td><%= leave_info.reference_status %></td>                 
           <td><%= leave_info.start_date %></td>
           <td><%= leave_info.end_date %></td>
           <td><%= count += distance_of_time_in_words(leave_info.start_date ,leave_info.end_date).to_i  %></td>

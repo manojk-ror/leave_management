@@ -2,8 +2,9 @@
 <div class="container">
   <div class="row-fluid">
     <div class="offset1 span10 well">
+    <legend>Find leaves between dates</legend>
       <%= render :partial => "leave_show" %> 
-      <center><legend>All Leaves List</legend></center>
+      <legend><%= current_employee.personal_info.name.capitalize %>'s leave details</legend>
       <table class="table table-hover">
         <tr>
           <th>Applicant Name</th>
@@ -23,7 +24,7 @@
               <td><%= @e.personal_info.name %></td>
               
               <% if(leave_info.applicant_id == leave_info.employee_id) %>
-                <td> Same </td>
+                <td> Self </td>
               <% else %>  
                 <% @l = Employee.find_by_id(leave_info.employee_id) %>
                 <td><%= @l.personal_info.name %>
