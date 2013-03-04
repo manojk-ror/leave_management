@@ -1,27 +1,11 @@
-
-
 legend.serif{font-family:"Times New Roman",Times,serif;}
-body
-{
-font-size:75%;
-font-family:verdana,arial,'sans serif';
-background-color:#FFFFF0;
-color:#000080;
-margin:10px;
-}
 
-legend {font-size:200%;color:green; }
-h2 {font-size:140%; color:blue;}
-h3 {font-size:110%;}
 
-th {background-color:#ADD8E6;}
-
-ul {list-style:circle;}
-ol {list-style:upper-roman;}
-
+legend {font-size:150%;color:blue; }
+th {color:green;}
 a:link {color:#000080;}
 a:hover {color:red;}
 hr   {color:navy;}
 
 p {color:black;text-align:left;}
-
+b {color:green;}
