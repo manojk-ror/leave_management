@@ -6,9 +6,7 @@ class Admin::LeaveInfosController < ApplicationController
     if !params[:start_date].blank? and !params[:end_date].blank?
       @leave_infos = LeaveInfo.find_by_date(params[:start_date],params[:end_date])
     else
-      
-      @leave_infos = LeaveInfo.latest_leave.all
-      
+      @leave_infos = LeaveInfo.latest_leave
     end
   end
 
@@ -18,7 +16,6 @@ class Admin::LeaveInfosController < ApplicationController
     unless @leave_info.present?
       redirect_to admin_leave_infos_path, notice: 'Leave info was successfully Updated.' 
     end
-    
   end
   
   def edit
@@ -53,11 +50,5 @@ class Admin::LeaveInfosController < ApplicationController
     @employee = Employee.find(params[:id])
     @leave_infos = @employee.leave_infos.latest_leave
   end
-   
-  def leaves
-    @leave_infos = LeaveInfo.latest_leave.all
-    @employees = Employee.all
-  end
- 
 
 end
