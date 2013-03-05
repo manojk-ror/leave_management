@@ -1,0 +1,48 @@
+<table class= "table">
+        <tr>
+          <th>Applicant Name</th>
+          <th>Refferal Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Leave Days</th>
+          <th>Status Of Day</th>
+          <th>Counted days</th>
+          <th>Leave Status</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+  <% panding_leaves.each do |leave_info| %>
+    <% unless leave_info.applicant_id.nil? %>
+      <% count = 1 %>
+     
+      <tr class="warning">
+      <% @e = Employee.find_by_id(leave_info.applicant_id) %>
+      <td>
+        <%= link_to  @e.personal_info.name , show_perticular_leaves_admin_leave_info_path(leave_info.applicant_id) %>
+      </td> 
+      
+      <% if(leave_info.applicant_id == leave_info.employee_id) %>
+        <td> Self </td>
+      <% else %>  
+        <% @l = Employee.find_by_id(leave_info.employee_id) %>
+        <td><%= @l.personal_info.name %></td>
+      <% end %>  
+         
+      <td><%= leave_info.start_date %></td>
+      <td><%= leave_info.end_date %></td>
+      <td><%= count += distance_of_time_in_words(leave_info.start_date ,leave_info.end_date).to_i  %></td>
+      <td><%= leave_info.status_of_day %></td>
+      <td><%= counted_leave = count * leave_info.status_of_day %>
+      
+      <% if leave_info.leave_status == "pending" && leave_info.start_date == Time.now.to_date %>
+        <% leave_info.leave_status = "Rejected" %>
+        <td><%= link_to  leave_info.leave_status ,edit_admin_leave_info_path(leave_info) %></td>
+      <% else %>  
+        <td><%= link_to  leave_info.leave_status ,edit_admin_leave_info_path(leave_info) %></td> 
+      <% end %>
+      <td><%= link_to 'Detail', admin_leave_info_path(leave_info), :class => "btn btn-info" %></td>
+    </tr>
+   <% end %> 
+  <% end %>
+</table>
