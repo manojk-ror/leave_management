@@ -1,60 +1,42 @@
-
-
 <div class="container">
   <div class="row-fluid">
     <div class=" span12 well">
       <legend>Find leaves between dates</legend>
-      <%= render :partial => "leave_show" %>    
-          
-      <legend>All Employee leaves</legend>
-
-      <table class= "table">
-        <tr>
-          <th>Applicant Name</th>
-          <th>Refferal Name</th>
-          <th>Start Date</th>
-          
-          <th>End Date</th>
-          <th>Leave Days</th>
-          <th>Status Of Day</th>
-          <th>Counted days</th>
-          <th>Leave Status</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-        <% @leave_infos.each do |leave_info| %>
-        <% unless leave_info.applicant_id.nil? %>
-          <% count = 1 %>
-          <tr>
-            <% @e = Employee.find_by_id(leave_info.applicant_id) %>
-            <td>
-           
-               <%= link_to  @e.personal_info.name , show_perticular_leaves_admin_leave_info_path(leave_info.applicant_id) %>
-            </td> 
-            <% if(leave_info.applicant_id == leave_info.employee_id) %>
-              <td> Self </td>
-            <% else %>  
-              <% @l = Employee.find_by_id(leave_info.employee_id) %>
-              <td><%= @l.personal_info.name %>
-            <% end %>  
-               
-            <td><%= leave_info.start_date %></td>
-            <td><%= leave_info.end_date %></td>
-            <td><%= count += distance_of_time_in_words(leave_info.start_date ,leave_info.end_date).to_i  %></td>
-            <td><%= leave_info.status_of_day %></td>
-            <td><%= counted_leave = count * leave_info.status_of_day %>
-            
-            <td><%= link_to  leave_info.leave_status ,edit_admin_leave_info_path(leave_info) %></td> 
-            <td><%= link_to 'Detail', admin_leave_info_path(leave_info), :class => "btn btn-info" %></td>
-          </tr>
-         <% end %> 
-        <% end %>
-      </table>
+      <%= render :partial => "leave_show" %> 
+      <ul class="nav nav-tabs" id="myTab">
+        <li ><%= link_to  'Pending' , "#pending", :class => "btn btn-warning" %></li>
+        <li ><%= link_to  'Approved' , "#approved", :class => "btn btn-success"  %></li>
+        <li ><%= link_to  'Rejected' , "#rejected", :class => "btn btn-danger" %></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane " id="pending">
+          <legend>All Pending leaves</legend>
+          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"pending")} %>
+        </div>
+    
+        <div class="tab-pane" id="approved">
+          <legend>All Approved leaves</legend>
+          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"Approved")} %>
+        </div>
+    
+        <div class="tab-pane" id="rejected">
+          <legend>All Rejected leaves</legend>
+          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"Rejected")} %>
+        </div>
+      </div> 
     </div>
   </div>
 </div>
  
+ <script>
+  $(function () {
+    $('#myTab a:first').tab('show');
+    $('#myTab a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+  });
+</script>
 
 
 

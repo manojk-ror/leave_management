@@ -16,11 +16,21 @@
           </div>
         <% end %>
           <b>Leave Status:</b>
-          <% if @leave_info.leave_status == "pending" %> 
-            <%= f.select(:leave_status, [['Approved', "Approved"], ['Rejected', "Rejected"], ['Pending', "pending"]]) %>
-          <% else %>
-             <%= @leave_info.leave_status %>
-          <% end %>
+          <% unless @leave_info.leave_status == "pending" && @leave_info.start_date == Time.now.to_date %>
+          
+            <% if @leave_info.leave_status == "pending" %> 
+              <%= f.select(:leave_status, [['Approved', "Approved"], ['Rejected', "Rejected"], ['Pending', "pending"]]) %>
+            <% else %>
+               <%= @leave_info.leave_status %>
+            <% end %>
+          <% else %> 
+           <% qm = LeaveInfo.find(:first, :conditions => ["id = ? ", @leave_info.id]) %>
+           <% qm.update_attribute(:leave_status, "Rejected") %>
+            <% qm.save %>
+            <% qm.reload %>
+            <%= @leave_info.leave_status = "Rejected" %>
+          <% end %>  
+
         
           <p>          
             <b>Applicant Name:</b>
@@ -65,7 +75,6 @@
           <%= @leave_info.reason_of_leave %><br /><br />
           <%= f.submit %>
       <% end %>
-
     </div>
   </div>
 </div>      
