@@ -9,12 +9,14 @@
         <tr>
           <th>Applicant Name</th>
           <th>Refferal Name</th>
-          <th>Start Date</th>
           
+         
+          <th>Start Date</th>
           <th>End Date</th>
-          <th>Leave Days</th>
           <th>Status Of Day</th>
           <th>Leave Status</th>
+          <th>Leave Days</th>
+
           <th>Counted Leave</th>
           <th></th>
           <th></th>
@@ -44,11 +46,16 @@
           <% end %>
           <td><%= leave_info.start_date %></td>
           <td><%= leave_info.end_date %></td>
-          <td><%= count += distance_of_time_in_words(leave_info.start_date ,leave_info.end_date).to_i  %></td>
           <td><%= leave_info.status_of_day %></td>
           <td><%= leave_info.leave_status %></td>
-          <td><%= counted_leave = count * leave_info.status_of_day %></td>
-          <% total_count += counted_leave %>
+          <% if(leave_info.leave_status == "Approved") %>        
+            <td><%= count += distance_of_time_in_words(leave_info.start_date,leave_info.end_date).to_i  %></td>
+            <td><%= counted_leave = count * leave_info.status_of_day.to_f %></td>
+            <% total_count+= counted_leave %>
+          <% else %>
+            <td>0</td>
+            <td>0</td>
+          <% end %>
 
           <td><%= link_to 'Show', admin_leave_info_path(leave_info), :class => "btn btn-info" %></td>
           <td><%= link_to 'Status', edit_admin_leave_info_path(leave_info), :class => "btn btn-info" %></td>

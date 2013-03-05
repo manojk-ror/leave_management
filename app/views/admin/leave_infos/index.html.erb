@@ -11,17 +11,17 @@
       <div class="tab-content">
         <div class="tab-pane " id="pending">
           <legend>All Pending leaves</legend>
-          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"pending")} %>
+          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"pending"), :status_color => "warning" } %>
         </div>
     
         <div class="tab-pane" id="approved">
           <legend>All Approved leaves</legend>
-          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"Approved")} %>
+          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"Approved"), :status_color => "success" } %>
         </div>
     
         <div class="tab-pane" id="rejected">
           <legend>All Rejected leaves</legend>
-          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"Rejected")} %>
+          <%= render :partial => "leave_index", :locals => {:panding_leaves => check_leave_status(@leave_infos,"Rejected"), :status_color => "error"} %>
         </div>
       </div> 
     </div>

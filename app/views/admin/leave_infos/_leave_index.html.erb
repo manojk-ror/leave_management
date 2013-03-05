@@ -15,8 +15,7 @@
   <% panding_leaves.each do |leave_info| %>
     <% unless leave_info.applicant_id.nil? %>
       <% count = 1 %>
-     
-      <tr class="warning">
+      <tr class = "<%=status_color%>" >
       <% @e = Employee.find_by_id(leave_info.applicant_id) %>
       <td>
         <%= link_to  @e.personal_info.name , show_perticular_leaves_admin_leave_info_path(leave_info.applicant_id) %>

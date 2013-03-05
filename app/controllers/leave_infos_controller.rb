@@ -4,9 +4,9 @@ class LeaveInfosController < ApplicationController
   
   def index
     if !params[:start_date].blank? and !params[:end_date].blank?
-      @leave_infos = LeaveInfo.where("start_date >= ? AND end_date <= ?", params[:start_date],params[:end_date] )
+      @leave_infos = current_employee.leave_infos.where("start_date >= ? AND end_date <= ?", params[:start_date],params[:end_date] )
     else
-      @leave_infos = current_employee.leave_infos.latest_leave.all
+      @leave_infos = current_employee.leave_infos.latest_leave
       
     end
     
