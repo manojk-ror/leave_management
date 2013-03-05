@@ -9,10 +9,3 @@ class LeaveInfo < ActiveRecord::Base
 
 end
 
-=begin  
-  def self.find_by_date(s_date,e_date)
-  @l = LeaveInfo.where("start_date >= ? AND end_date <= ?",s_date, e_date )
- 
-  return @l
-  end 
-=end  
