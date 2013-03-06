@@ -27,7 +27,7 @@
           <% else %>  
             <tr class="error">
           <% end %> 
-          <% @e = leave_info.referral %>
+          <% @e = leave_info.applicant %>
           <td><%= @e.personal_info.name %></td>
           
           <% if(leave_info.applicant_id == leave_info.employee_id) %>
